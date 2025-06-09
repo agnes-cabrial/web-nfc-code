@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write to NFC Tag</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffffff;
+        }
+        .nfc-container {
+            text-align: center;
+        }
+        #writeButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #000000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+        }
+        #message {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        #lottie-animation {
+            width: 200px;
+            height: 200px;
+        }
+        .gift-image {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="data" value="https://test.com/view/{{data.slug}}" disabled hidden>
+    <img src="{% static 'images/bg.png' %}" width="150px;" height="auto;">
+    <div class="nfc-container">
+        <div class="gift-image" id="lottie-animation"></div>
+        <h2>Media Stored Successfully! <br> Let's assign data to your NFC Tag!</h2>
+        <form id="nfc-form">
+            
+            <button type="button" id="writeButton">Write to NFC Tag</button>
+        </form>
+        <p id="message"></p>
+    </div>
+    <script>
+        log = ChromeSamples.log;
+        
+        if (!("NDEFReader" in window))
+          ChromeSamples.setStatus("Web NFC is not available. Use Chrome on Android.");
+        </script>
+
+    <script>
+        
+        writeButton.addEventListener("click", async () => {
+        console.log("User clicked write button");
+        var data1 = document.getElementById('data').value;
+        
+        try {
+            const permission = await navigator.permissions.query({ name: 'nfc' });
+            const ndef = new NDEFReader();
+            await ndef.scan();
+            console.log("> Scan started");
+            ndef.addEventListener("readingerror", () => {
+                console.log("Argh! Cannot read data from the NFC tag. Try another one?");
+                alert("Reading Error");
+
+            });
+            ndef.addEventListener("reading", ({ message, serialNumber }) => {
+            alert(`> Serial Number: ${serialNumber}`)
+            console.log(`> Serial Number: ${serialNumber}`);
+            console.log(`> Records: (${message.records.length})`);
+            });
+            await ndef.write(data1);
+            console.log("> Message written");
+            alert("Success");
+        } catch (error) {
+            alert("Failed" + error);
+            //alert("Argh! " + error);
+            console.log("Argh! " + error);
+        }
+        });
+        // Check if the browser supports Web NFC API
+        if ('NDEFReader' in window) {
+           const writeButton = document.getElementById('write-button');
+           const messageParagraph = document.getElementById('message');
+
+           // NFC Write Functionality
+           writeButton.addEventListener('click', async () => {
+               const data = document.getElementById('data').value;
+
+               // Validation
+               if (!data) {
+                   messageParagraph.textContent = "Please enter valid data.";
+                   messageParagraph.style.color = 'red';
+                   return;
+               }
+
+               // Try writing data to NFC tag
+               try {
+                   const ndef = new NDEFReader();
+                   await ndef.scan();  // Start NFC scan for tag presence
+                   await ndef.write(data);  // Write data to the NFC tag
+
+                   messageParagraph.textContent = "Data successfully written to NFC tag!";
+                   messageParagraph.style.color = 'green';
+
+                   const url = "{% url 'core:set-flag' data.slug %}"
+
+                   $.ajax({
+                       url: url,
+                       
+                       type: 'POST',
+                       data: {
+                           'slug': "{{data.slug}}",
+                           'csrfmiddlewaretoken': '{{ csrf_token }}'  // Ensure this is included for CSRF protection
+                       },
+                       success: function(response) {
+                           if (response.status == 'success') {
+                               console.log('Status updated successfully.');
+                           } else {
+                               console.log('Failed to update status');
+                           }
+                       }
+                   });
+               } catch (error) {
+                   messageParagraph.textContent = `Failed to write to NFC tag: ${error.message}`;
+                   messageParagraph.style.color = 'red';
+                   alert('NFC Reader Not Available!')
+               }
+           });
+        } else {
+           console.log('notworking')
+           alert('NFC Reader Not Available!')
+           //document.querySelector('.nfc-container').innerHTML = "<p>Your browser or device does not support NFC writing.</p>";
+        }
+    </script>
+    <script>
+        var animation = lottie.loadAnimation({
+            container: document.getElementById('lottie-animation'), // The container element
+            renderer: 'svg', // Renderer type (svg/canvas/html)
+            loop: true, // Whether to loop the animation
+            autoplay: true, // Autoplay the animation
+            path: "{% static 'images/lottie.json' %}" // Path to your Lottie JSON file
+        });
+    </script>
+    
+</body>
+</html>

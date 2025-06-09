@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFC Reader Check</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .gift-image {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            background-color: #000;
+            position: relative;
+        }
+        .gift-bow {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: url('/api/placeholder/200/200');
+            background-size: cover;
+        }
+        .description {
+            margin: 20px 0;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .start-button {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            .gift-image {
+                width: 150px;
+                height: 150px;
+            }
+            .description {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>NFC Reader Check</h1>
+    <div class="container"></div>
+        <div class="logo">totwoo | MEMORY</div>
+        <div class="gift-image">
+            <div class="gift-bow"></div>
+        </div>
+        <div class="description">
+            <p class="description0txt">Store a memory into your totwoo jewelry.
+                The memory will be unveiled by tapping
+                totwoo to an NFC-enable smartphone.</p>
+        </div>
+        <button class="start-button">Start</button>
+    </div>
+    <!-- <p id="nfc-status"></p>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nfcStatus = document.getElementById('nfc-status');
+            console.log("Shuru");
+
+            if ('NDEFReader' in window) {
+                nfcStatus.textContent = 'This device supports NFC.';
+                console.log("Idhar Phata")
+            } else {
+                console.log("Idhar Phatega")
+                nfcStatus.textContent = 'This device does not support NFC.';
+            }
+        });
+    </script> -->
+</body>
+</html>
+

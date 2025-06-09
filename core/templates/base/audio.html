@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+  <title>Image Upload</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      margin: 0;
+      background-color: #ffffff;
+    }
+
+    .upload-container {
+      text-align: center;
+    }
+
+    .dots-container {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .dot.active {
+      background-color: black;
+    }
+
+    #audio-container {
+      max-width: 230px;
+    }
+
+    #audio {
+      width: 100%;
+      height: 40px;
+      margin: 10px 0px;
+    }
+
+    #upload-button {
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #000000;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 15px 25px;
+    }
+
+    #upload-button2 {
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #000000;
+      /* Green button */
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 15px 25px;
+    }
+
+    #upload-button3 {
+      border-radius: 50px;
+      padding: 15px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #000000;
+      /* Green button */
+      color: white;
+      border: none;
+    }
+
+    #file-input {
+      display: none;
+      /* Hidden file input */
+    }
+
+    #video-input {
+      display: none;
+    }
+
+    .image-preview-container {
+      text-align: center;
+      padding: 20px 5px;
+    }
+
+    #image-preview {
+      max-width: 100px;
+      max-height: 100px;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .container {
+      text-align: center;
+      padding: 0px;
+      overflow: hidden;
+      margin: 0;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .gift-image {
+      width: 200px;
+      height: 200px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      position: relative;
+    }
+
+    .gift-bow {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-image: url("../../../static/images/gift.png");
+      background-size: cover;
+    }
+
+    .description {
+      margin: 20px 0;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .start-button {
+      background-color: #000;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 50px;
+    }
+
+    @media (max-width: 480px) {
+      .gift-image {
+        width: 150px;
+        height: 150px;
+      }
+
+      .description {
+        font-size: 14px;
+      }
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* custom design */
+    .media-list-section {
+      margin: 0;
+      padding: 40px 0px;
+    }
+
+    .upload-card--list {
+      display: block;
+      background-color: #fff;
+      border: 1px solid #fff;
+      padding: 30px 30px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      text-align: center;
+      margin: 20px;
+      position: relative;
+    }
+
+    .upload-card--list img {
+      border: 1px solid;
+      padding: 15px;
+      border-radius: 30px;
+      width: 100%;
+      max-width: 50px;
+      height: auto;
+      background-color: #000;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 0px auto;
+      top: -21px;
+      z-index: 999;
+    }
+
+    .upload-title {
+      font-size: 30px;
+      line-height: 41px;
+      font-weight: 800;
+      padding: 25px;
+    }
+
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: auto;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 20px 40px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      text-align: center;
+      display: none;
+      z-index: 1000;
+    }
+
+    /* Close Button */
+    .popup .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      cursor: pointer;
+      font-size: 20px;
+      background: none;
+      border: none;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 999;
+    }
+
+    .preview--txt {
+      font-size: 30px;
+      line-height: 40px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin: 0px 0px 10px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+    }
+
+    .form-group label {
+      text-align: start;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 2px;
+      padding: 5px 0px;
+    }
+
+    .form-input-popup {
+      border: none;
+      border-bottom: 1px solid #bbb;
+      padding: 10px 0px;
+      vertical-align: middle;
+    }
+
+    .textarea--input-popup {
+      border-bottom: unset;
+    }
+
+    .form-input-popup:focus {
+      border: none;
+      border-bottom: 1px solid #bbb;
+      outline: none;
+    }
+
+    #video-preview {
+      width: 100%;
+      height: 100%;
+      max-width: 150px;
+      max-height: 120px;
+      margin: 0;
+    }
+
+    .custom-loader {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: inline-block;
+      border-top: 4px solid #D2B48C;
+      border-right: 4px solid transparent;
+      position: absolute;
+      top: 43%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 999;
+      box-sizing: border-box;
+      margin: 0 auto;
+      animation: rotation 1s linear infinite;
+    }
+
+    .custom-loader::after {
+      content: '';
+      box-sizing: border-box;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border-left: 4px solid #fff;
+      border-bottom: 4px solid transparent;
+      animation: rotation 0.5s linear infinite reverse;
+      z-index: 999;
+    }
+
+    @keyframes rotation {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .media-list-section {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    .slider-container {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: calc(100% * 1.5);
+    }
+
+    .upload-card--list {
+      flex: 0 0 calc(100% / 1.5);
+      margin-right: 10px;
+    }
+
+    .submit_btn,
+    .submit_btn_audio {
+      font-size: 14px;
+      line-height: 19px;
+      cursor: pointer;
+      background-color: #000000;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      width: 100%;
+      padding: 8px 25px;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .recorder-container {
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    #start,
+    #stop {
+      border: none;
+      background: none;
+      padding: unset;
+    }
+    .record-btn:hover {
+      background-color: #000;
+    }
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.5);
+        opacity: 0.6;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Stop button */
+    .stop-btn {
+      background-color: black;
+      color: white;
+      font-size: 12px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+    }
+
+    .stop-btn:hover {
+      background-color: #D2B48C;
+    }
+
+    /* Disable stop button */
+    .stop-btn:disabled {
+      background-color: #D2B48C;
+      cursor: not-allowed;
+    }
+
+    /* Audio player */
+    audio {
+      width: 100%;
+      max-width: 350px;
+      margin-top: 20px;
+      border-radius: 10px;
+    }
+
+    .recorder-sub-container {
+      display: flex;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row-reverse;
+      padding: 0px 0px 20px;
+    }
+
+    #upload-form {
+      padding: 15px 0px;
+    }
+
+    .slick-dots li {
+      height: 38px !important;
+    }
+
+    .custom--close-icon,
+    .custom--close-icon--audio {
+      position: absolute;
+      top: 5px;
+      right: 4px;
+      color: #000;
+      background-color: #e5e5e56b;
+      font-size: 16px;
+      font-weight: bold;
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      line-height: 21px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #popup-preview-container,
+    #audio-container {
+      width: 100%;
+      max-width: 250px;
+      height: 100%;
+      max-height: 480px;
+      box-shadow: 10px 10px 5px #aaaaaa;
+    }
+
+    #audioRecorderModal {
+      display: none;
+    }
+
+    .modal.fade .modal-dialog {
+      transition: transform .3s ease-out;
+      transform: translate(0, 50px);
+    }
+
+    .modal-dialog {
+      position: fixed !important;
+      bottom: 5% !important;
+      left: 0% !important;
+      right: 0% !important;
+      margin-bottom: 0 !important;
+      z-index: 9999;
+      background-color: #fff;
+      padding: 25px 30px 50px;
+      border-radius: 15px 15px 0px 0px;
+
+    }
+
+    .modal.show .modal-dialog {
+      transform: none;
+    }
+
+    .modal-content {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+
+    }
+
+    #record-timer,
+    .close-icon--audio,
+    #stop {
+      font-size: 13px;
+      line-height: 20px;
+      color: #000;
+      cursor: pointer;
+    }
+    .recording-indicator--txt{
+      font-size: 14px;
+      line-height: 20px;
+      margin: 0;
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="logo"></div>
+    <img src="../../../static/images/bg.png" width="150px;" height="auto;">
+    <p id="nfc-status"></p>
+    <form id="upload-form" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="hidden" name="update_mode" value="{{ update_mode|yesno:'true,false' }}">
+      <ul class="media-list-section">
+        <li class="upload-card--list">
+          <img src="../../../static/images/photo-camera.png" alt="Camera Icon">
+          <p class="upload-title">PHOTO</p>
+          <button class="upload--btn" id="upload-button">Upload Image</button>
+          <input type="file" name="image_file" id="file-input" accept="image/*">
+        </li>
+        <li class="upload-card--list">
+          <img src="../../../static/images/video-camera.png" alt="Video Icon">
+          <p class="upload-title">VIDEO</p>
+          <button class="upload--btn" id="upload-button2">Upload Video</button>
+          <input type="file" name="video_file" id="video-input" accept="video/*">
+        </li>
+        <li class="upload-card--list">
+          <img src="../../../static/images/voice-recorder.png" alt="Audio Icon">
+          <p class="upload-title">VOICE</p>
+          <button class="upload--btn" id="upload-button3">Upload Voice</button>
+          <input type="file" name="audio_file" id="audio_file" hidden>
+        </li>
+      </ul>
+  </div>
+  <div class="popup" id="audio-container" style="display: none;">
+    <span class="close-icon custom--close-icon--audio" data-bs-dismiss="modal">×</span>
+    <div id="preview-form">
+      <div class="form-group">
+        <label for="name">BY</label>
+        <input type="text" class="form-input-popup" id="audio-name" name="audio-name" required
+          placeholder="Your Name" />
+      </div>
+      <div class="form-group">
+        <input id="audio-comments" class="form-input-popup textarea--input-popup" name="audio-comments"
+          placeholder="Your words">
+      </div>
+      <div id="audio-preview"></div>
+      <input type="file" id="audio_file" hidden>
+    </div>
+    <button class="submit_btn_audio" type="submit">Store into Zaisha</button>
+  </div>
+
+  <div class="modal fade" id="audioRecorderModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="recorder-container p-3">
+          <div class="recorder-sub-container">
+            <button id="stop" class="stop-btn btn btn-secondary" disabled>Done</button>
+            <span id="record-timer">0:00</span>
+            <span class="close-icon--audio" data-bs-dismiss="modal">Cancel</span>
+          </div>
+          <button id="start" class="record-btn btn btn-danger">
+            <span class="recording-indicator">
+              <span id="svg-stop">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="45" height="45"
+                  viewBox="0 0 64.000000 64.000000" preserveAspectRatio="xMidYMid meet">
+                  <g transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+                    <path d="M210 603 c-63 -23 -151 -113 -173 -177 -40 -117 -14 -231 72 -317 64
+                                    -64 124 -89 211 -89 87 0 147 25 211 89 86 86 112 200 72 317 -23 67 -110 154
+                                    -177 177 -61 21 -156 21 -216 0z m217 -19 c192 -77 237 -347 81 -480 -107 -90
+                                    -269 -90 -376 0 -97 83 -124 248 -58 361 25 42 76 89 125 115 55 28 163 31
+                                    228 4z" />
+                  </g>
+                </svg>
+              </span>
+              <span id="svg-record" style="display: none;">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="45" height="45"
+                  viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+                  <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+                    <path d="M2415 5074 c-503 -34 -959 -201 -1365 -502 -150 -111 -391 -352 -502
+                                    -502 -337 -455 -501 -950 -501 -1510 0 -213 16 -367 59 -559 171 -762 718
+                                    -1425 1439 -1744 485 -214 1048 -268 1574 -151 932 208 1687 964 1895 1897 81
+                                    360 81 755 0 1116 -137 612 -524 1176 -1049 1528 -329 220 -690 357 -1075 407
+                                    -122 16 -375 26 -475 20z m385 -244 c348 -41 646 -142 942 -318 288 -171 601
+                                    -483 770 -770 286 -482 389 -1029 297 -1572 -45 -263 -151 -546 -297 -794
+                                    -169 -283 -484 -598 -770 -768 -530 -316 -1143 -408 -1734 -262 -404 100 -755
+                                    300 -1059 603 -437 436 -669 995 -669 1611 0 617 231 1173 669 1611 373 373
+                                    826 593 1356 658 100 12 395 13 495 1z" />
+                    <path d="M2435 3549 c-218 -28 -403 -119 -567 -277 -266 -257 -366 -627 -267
+                                    -983 89 -322 366 -599 689 -688 226 -63 476 -43 686 53 257 119 469 366 543
+                                    635 99 356 -1 726 -267 983 -168 163 -349 249 -582 278 -96 11 -136 11 -235
+                                    -1z" />
+                  </g>
+                </svg>
+              </span>
+            </span>
+          </button>
+          <p class="recording-indicator--txt">Record</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </form>
+  <div class="overlay" id="overlay"></div>
+  <div id="popup-preview-container" class="popup">
+    <!-- <h2 class="preview--txt">Memory</h2> -->
+
+    <div id="preview-form">
+      <div class="form-group">
+        <label for="name">BY</label>
+        <input type="text" class="form-input-popup" id="preview-name" name="preview-name" required
+          placeholder="Your Name" />
+      </div>
+      <div class="form-group">
+        <input id="preview-comments" class="form-input-popup textarea--input-popup" name="preview-comments"
+          placeholder="Your words">
+      </div>
+      <div class="image-preview-container">
+        <span class="close-icon custom--close-icon">×</span>
+        <img id="image-preview" style="display: none;" />
+      </div>
+
+      <div class="video-preview-container">
+        <video id="video-preview" controls style="display: none;"></video>
+      </div>
+      <button class="submit_btn" type="submit">Store into zaisha</button>
+    </div>
+  </div>
+  <div class="custom-loader" id="custom-loader" style="display: none;"></div>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+  <script>
+    const uploadButton = document.getElementById('upload-button');
+    const uploadButton2 = document.getElementById('upload-button2');
+    const uploadButton3 = document.getElementById('upload-button3');
+    const fileInput = document.getElementById('file-input');
+    const videoInput = document.getElementById('video-input');
+    const imagePreview = document.getElementById('image-preview');
+    const popupPreview = document.getElementById('popup-preview-container');
+    const overlay = document.getElementById('overlay');
+    const videoPreview = document.getElementById('video-preview');
+    const uploadForm = document.getElementById('upload-form');
+    const start = document.getElementById('start');
+    const stop = document.getElementById('stop');
+    const hiddenDiv = document.getElementById('audio-container');
+    const customLoader = document.getElementById('custom-loader');
+    const submitButton = document.querySelector('.submit_btn');
+    const submitButtonAudio = document.querySelector('.submit_btn_audio');
+    const customCloseIcon = document.querySelector('.custom--close-icon');
+    const customCloseIconAudio = document.querySelector('.custom--close-icon--audio');
+    const closeBtnAudio = document.querySelector('.close-icon--audio');
+    const audioRecorderModal = document.getElementById("audioRecorderModal");
+    const stopBtnAudio = document.querySelector('.stop-btn');
+    const urlParams = new URLSearchParams(window.location.search);
+    const imei = urlParams.get("imei");
+    function getIMEI() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get("imei");
+    }
+    function reloadWithIMEI() {
+        const imei = getIMEI();
+        console.log(imei, "imei test");
+        if (imei) {
+            window.location.href = `${window.location.pathname}?imei=${imei}`;
+        } else {
+            window.location.href = `${window.location.pathname}?imei=default_value`; // Ensure a value is always present
+        }
+    }
+    if (customCloseIconAudio) {
+        customCloseIconAudio.addEventListener("click", () => {
+            if (popupPreview) popupPreview.style.display = "none";
+            if (overlay) overlay.style.display = "none";
+            reloadWithIMEI();
+        });
+    }
+    if (customCloseIcon) {
+        customCloseIcon.addEventListener("click", () => {
+            if (popupPreview) popupPreview.style.display = "none";
+            if (overlay) overlay.style.display = "none";
+            const imei = getIMEI();
+            if (imei) {
+                history.replaceState(null, null, `${location.pathname}?imei=${imei}`);
+            } else {
+                history.replaceState(null, null, location.pathname);
+            }
+            reloadWithIMEI();
+        });
+    }
+    if (closeBtnAudio) {
+      closeBtnAudio.addEventListener('click', () => {
+        audioRecorderModal.style.display = 'none';
+        overlay.style.display = 'none';
+        const imei = getIMEI();
+        if (imei) {
+            history.replaceState(null, null, `${location.pathname}?imei=${imei}`);
+        } else {
+            history.replaceState(null, null, location.pathname);
+        }
+        reloadWithIMEI();
+      });
+    }
+    console.log(getIMEI(), "IMEI on page load");
+    if (stopBtnAudio) {
+      stopBtnAudio.addEventListener('click', () => {
+        audioRecorderModal.style.display = 'none';
+      });
+    }
+    uploadButton.addEventListener('click', () => {
+      event.preventDefault();
+      hiddenDiv.style.display = 'none';
+      fileInput.click(); 
+    });
+    uploadButton2.addEventListener('click', () => {
+      event.preventDefault();
+      hiddenDiv.style.display = 'none';
+      videoInput.click();
+    });
+
+    uploadButton3.addEventListener('click', () => {
+      event.preventDefault();
+    });
+
+    start.addEventListener('click', () => {
+      event.preventDefault();
+    });
+    stop.addEventListener('click', () => {
+      event.preventDefault();
+    });
+    fileInput.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      if (file && file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          imagePreview.src = e.target.result;
+          imagePreview.style.display = 'block';
+          popupPreview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+        overlay.style.display = 'block';
+      } else {
+        alert('Please select a valid image file.');
+      }
+    });
+
+    // Handle form submission
+    function validateAndSubmit(formType, imei) {
+      let nameFieldId = formType === 'audio' ? 'audio-name' : 'preview-name';
+      let commentsFieldId = formType === 'audio' ? 'audio-comments' : 'preview-comments';
+      console.log("nameFieldId", nameFieldId, "commentsFieldId", commentsFieldId);
+
+      let nameValue = document.getElementById(nameFieldId).value.trim();
+      let commentsValue = document.getElementById(commentsFieldId).value.trim();
+      console.log("nameValue", nameValue, "commentsValue", commentsValue);
+      if (!nameValue || !commentsValue) {
+        alert("Please enter your name and words before submitting.");
+        return;
+      }
+
+      // Remove any existing hidden inputs before appending new ones
+      document.querySelectorAll(`[name="${formType}-name"], [name="${formType}-comments"]`).forEach(input => input.remove());
+      let nameInput = document.createElement('input');
+      nameInput.type = 'hidden';
+      nameInput.name = 'name';
+      nameInput.value = nameValue;
+
+      let commentsInput = document.createElement('input');
+      commentsInput.type = 'hidden';
+      commentsInput.name = 'comments';
+      commentsInput.value = commentsValue;
+      console.log("test render 1233", nameInput, "commentsInput", commentsInput);
+
+      let imeiInput = document.createElement('input');
+      imeiInput.type = 'hidden';
+      imeiInput.name = 'imei';
+      imeiInput.value = imei;
+      console.log("test render 1233", nameInput, "commentsInput", imeiInput);
+      console.log("nameInput1", nameInput)
+      uploadForm.appendChild(nameInput);
+      uploadForm.appendChild(imeiInput);
+      uploadForm.appendChild(commentsInput);
+      console.log("nameInput2", nameInput)
+      if (formType === 'audio') {
+        videoPreview.style.display = 'none';
+      } else {
+        videoPreview.style.display = 'none';
+        popupPreview.style.display = 'none';
+      }
+      customLoader.style.display = 'block';
+      if (imei) {
+        console.log("nameInput3", imei)
+        uploadForm.submit();
+        uploadForm.reset();
+        console.log("nameInput4", imei)
+      }
+    }
+
+    // Audio form submission handler
+    submitButtonAudio.addEventListener('click', (event) => {
+      console.log("render clicke audio");
+
+      event.preventDefault();
+      console.log("Audio form render clicked");
+      var hiddenDiv = document.getElementById('audio-container');
+      customLoader.style.display = 'block';
+      hiddenDiv.style.display = 'none';
+      validateAndSubmit('audio', imei);
+    });
+
+    // Image/Video form submission handler
+    submitButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      console.log("Image/Video form render clicked");
+      validateAndSubmit('image', imei);
+    });
+
+    videoInput.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      if (file && file.type.startsWith('video/')) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          videoPreview.src = e.target.result;
+          videoPreview.style.display = 'block';
+          popupPreview.style.display = 'block';
+          overlay.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      } else {
+        alert('Please select a valid Video file.');
+        videoPreview.style.display = 'none';
+      }
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      if ('NDEFReader' in window) {
+        try {
+          const reader = new NDEFReader();
+          await reader.scan();
+          console.log("NFC scanning started successfully");
+          reader.onreading = (event) => {
+            const decoder = new TextDecoder();
+            for (const record of event.message.records) {
+              console.log('Record data:', decoder.decode(record.data));
+            }
+          };
+
+        } catch (error) {
+          console.error('NFC scanning failed:', error);
+        }
+
+      } else {
+        console.warn('NFC is not supported in this browser.');
+      }
+    });
+
+    function startNFCReading() {
+      const reader = new NDEFReader();
+      reader.addEventListener('reading', (event) => {
+        const message = event.message;
+        message.records.forEach((record, index) => {
+          switch (record.recordType) {
+            case 'text':
+              const textDecoder = new TextDecoder();
+              console.log(`Text Record ${index}:`, textDecoder.decode(record.data));
+              break;
+            case 'url':
+              console.log(`URL Record ${index}:`, record.data);
+              break;
+          }
+        });
+      });
+
+      reader.addEventListener('readingerror', (error) => {
+        console.error('NFC Reading Error:', error);
+        alert("Read Error")
+      });
+      reader.scan().catch(error => {
+        console.error('NFC Scan Error:', error);
+      });
+    }
+  </script>
+  <!--Custom audio controller -->
+  <script>
+    let mediaRecorder;
+    let audioChunks = [];
+    let audioBlob;
+    let timer;
+    let seconds = 0;
+
+    const startBtn = document.getElementById("start");
+    const stopBtn = document.getElementById("stop");
+    const recordTimer = document.getElementById("record-timer");
+    const audioPreview = document.getElementById("audio-preview");
+    const audioContainer = document.getElementById("audio-container");
+    const audioFileInput = document.getElementById("audio_file");
+    const svgStop = document.getElementById("svg-stop");
+    const svgRecord = document.getElementById("svg-record");
+
+    function updateTimer() {
+      seconds++;
+      const minutes = Math.floor(seconds / 60);
+      const secs = seconds % 60;
+      recordTimer.textContent = `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+    }
+
+    startBtn.addEventListener("click", async () => {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(stream);
+        audioChunks = [];
+
+        mediaRecorder.ondataavailable = (event) => {
+          audioChunks.push(event.data);
+        };
+
+        mediaRecorder.onstop = () => {
+          clearInterval(timer);
+          seconds = 0;
+          recordTimer.textContent = "0:00";
+
+          audioBlob = new Blob(audioChunks, { type: "audio/wav" });
+          const audioURL = URL.createObjectURL(audioBlob);
+          const audioElement = document.createElement("audio");
+          audioElement.setAttribute("controls", "true");
+          audioElement.src = audioURL;
+
+          audioPreview.innerHTML = "";
+          audioPreview.appendChild(audioElement);
+          audioContainer.style.display = "block";
+
+          const file = new File([audioBlob], "recording.wav", { type: "audio/wav" });
+          const dataTransfer = new DataTransfer();
+          dataTransfer.items.add(file);
+          audioFileInput.files = dataTransfer.files;
+        };
+
+        mediaRecorder.start();
+        timer = setInterval(updateTimer, 1000);
+        startBtn.disabled = true;
+        stopBtn.disabled = false;
+        svgStop.style.display = "none";
+        svgRecord.style.display = "inline";
+      } catch (error) {
+        console.error("Error accessing microphone:", error);
+      }
+    });
+
+    stopBtn.addEventListener("click", () => {
+      if (mediaRecorder) {
+        mediaRecorder.stop();
+        startBtn.disabled = false;
+        stopBtn.disabled = true;
+        svgStop.style.display = "inline";
+        svgRecord.style.display = "none";
+      }
+    });
+
+  </script>
+  <script>
+    document.getElementById('upload-button3').addEventListener('click', function () {
+      var hiddenDiv = document.getElementById('audioRecorderModal');
+      hiddenDiv.style.display = 'block';
+      overlay.style.display = 'block';
+    });
+
+    $(document).ready(function () {
+      $(".media-list-section").slick({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        centerMode: true,
+        adaptiveHeight: true,
+        swipe: true,
+      });
+    });
+  </script>
+</body>
+
+</html>

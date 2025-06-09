@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Preview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0px;
+        }
+        .memory-container{
+            margin: 0px;
+            padding: 10px 20px;
+        }
+        .memory-card {
+            background-color: white;
+            width: auto;
+            padding: 15px 10px;
+            margin: 0px;
+            border-radius: 15px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: gray;
+        }
+        header{
+            height: 100%;
+            padding: 12px;
+            text-align: end;
+            background-color: #000;
+        }
+        .memory-text {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .memory-text h3{
+            margin: 0px 0px 10px;
+        }
+        .message {
+            font-size: 16px;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .memory-media {
+            border-radius: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+            max-width: 170px;
+            margin: 0px auto;
+        }
+
+        .date {
+            font-size: 12px;
+            color: gray;
+            margin-bottom: 5px;
+        }
+        .by-text {
+            font-size: 14px;
+            color: black;
+            text-align: end;
+        }
+        .memory-restore, #cancelBtn, .memory-pwdset{
+            color: #000;
+            text-decoration: none;
+            font-size: 15px;
+            line-height: 20px;
+            cursor: pointer;
+            font-weight: 800;
+        } 
+        .popup-container {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: -68%;
+            transform: translateY(100%);
+            transition: transform 0.4s ease-out, opacity 0.3s ease-out;
+            z-index: 1001;
+            background: #fff;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .popup-container.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .poup--button--container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+        }
+        .menu-btn{
+            text-decoration: none;
+            font-size: 24px;  
+            color: white;        
+            background: none;     
+            border: none;     
+            padding: 0;        
+            cursor: pointer;     
+            display: inline-block;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 999;
+        }
+        .memory---card{
+            box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 15px 57px 0 rgba(0, 0, 0, 0.19);
+            text-align: center;
+            margin-top: 20px;
+        }
+        .memory--body{
+            margin: 20px 0px 20px 0px;
+        }
+        .message{
+            padding: 20px 0px;
+        }
+        .createdDate--section{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background: #e5e5e5;
+        }
+        .date{
+            margin: 0;
+        }
+        .success--popup {
+            display: none;
+            width: 100%;
+            max-width: 250px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            z-index:9999;
+        }
+        .success--popup button {
+            padding: 10px 30px;
+            margin-top: 10px;
+            background: #000;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+        .set--pwd-container{
+            width: 100%;
+            text-align: center;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 7px 0px;
+        }
+
+        /* Popup Overlay */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        /* Popup Box */
+        .popup-boxconfm {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            width: 320px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Buttons Container */
+        .popup-buttons {
+            margin-top: 20px;
+        }
+
+        /* Button Styling */
+        .popup-buttons button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+            transition: 0.2s;
+        }
+
+        #cancelBtnconfm {
+            background: gray;
+            color: white;
+        }
+
+        #cancelBtnconfm:hover {
+            background: darkgray;
+        }
+
+        #confirmBtnconfm {
+            background: #ff5b5b;
+            color: white;
+        }
+
+        #confirmBtnconfm:hover {
+            background: #e04444;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="#" class="menu-btn" id="menu--btn">&bull;&bull;&bull;</a>
+    </header>
+    {% if messages %}
+        <div id="successPopup" class="success--popup">
+            {% for message in messages %}
+                <h3>{{ message }}</h3>
+                <p >Now, the memory will be unvealed by tapping zaisha to an NFC-enable smartphone.</p>
+            {% endfor %}
+            <button id="close--btn">Got it</button>
+        </div>
+    {% endif %}
+{% if all_data %}
+    <div class="memory-container">
+        {% for item in all_data %}
+            <div class="memory-card">
+                <input type="hidden" value="{{item.imei}}" id="store-imei" />
+                <div class="memory-text"><h3>MEMORY </h3></div>
+                <div class="memory---card">
+                    <div class="memory--body">
+                        <p class="message">{{ item.is_comments }}</p>
+                        {% if item.photo %}
+                            <div class="media-container-photo" data-url="{{ item.photo.url }}"></div>
+                        {% endif %}
+                        {% if item.video %}
+                            <div class="media-container-video" data-url="{{ item.video.url }}"></div>
+                        {% endif %}
+                        {% if item.recording %}
+                            <div class="media-container-audio" data-url="{{ item.recording.url }}"></div>
+                        {% endif %}
+                    </div>
+                    <div class="date-container">
+                        <div class="createdDate--section">
+                            <p class="date">{{ item.created_on }}</p>
+                            <p class="by-text">By {{ item.is_name }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>No data found for this IMEI number.</p>
+{% endif %}
+<div class="overlay" id="overlay"></div>
+<div class="popup-container" id="popup-container">
+    <div class="poup--button--container">
+       <div class="set--pwd-container">
+            <a href="#" id="setpwdBtn" class="memory-pwdset">Set password</a>
+       </div>
+       <a href="#" id="uploadBtn" class="memory-restore">Start again</a>
+       <a href="#" id="cancelBtn">Cancel</a>
+    </div>
+</div>
+<!-- confirm popup -->
+<div id="confirmPopupconfm" class="popup-overlay">
+    <div class="popup-boxconfm">
+        <p>Are you sure you want to restart again?</p>
+        <div class="popup-buttons">
+            <button id="cancelBtnconfm">Cancel</button>
+            <button id="confirmBtnconfm">Confirm</button>
+        </div>
+    </div>
+</div>
+
+</body>
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+    const setPwdBtn = document.getElementById("setpwdBtn"); 
+    const popupContainer = document.getElementById("popup-container");
+    const successPopup = document.getElementById("successPopup");
+    const overlay = document.getElementById("overlay");
+    const closeSuccessBtn = document.getElementById("close--btn");
+    const menuBtn = document.getElementById("menu--btn");
+    const cancelBtn = document.getElementById("cancelBtn");    
+    const storeImeiElement = document.getElementById('store-imei');
+    const storeImei = storeImeiElement ? storeImeiElement.value : null;
+
+    // Show popup when 'Set Password' button is clicked
+    if (setPwdBtn) {
+        setPwdBtn.addEventListener("click", function () {
+            if (storeImei) {
+                window.location.href = `/setpasswordnfc/?imei=${encodeURIComponent(storeImei)}`;
+            } else {
+                alert("Please enter a valid IMEI number.");
+            }
+        });
+    }
+
+    // Hide popup when close button is clicked
+    // if (closeBtn) {
+    //     closeBtn.addEventListener("click", function () {
+    //         passwordPopup.style.display = "none";
+    //         overlay.style.display = "none";
+    //     });
+    // }
+
+    if (successPopup && overlay) {
+        successPopup.style.display = "block";
+        overlay.style.display = "block";
+    }
+
+    if (closeSuccessBtn && successPopup && overlay) {
+        closeSuccessBtn.addEventListener("click", function () {
+            successPopup.style.display = "none";
+            overlay.style.display = "none";
+        });
+    }
+
+    if (menuBtn && popupContainer && overlay) {
+        menuBtn.addEventListener("click", function () {
+            console.log("Menu Button clicked");
+            popupContainer.classList.add("active");
+            overlay.style.display = "block";
+        });
+    }
+
+    if (cancelBtn && popupContainer && overlay) {
+        cancelBtn.addEventListener("click", function () {
+            console.log("Cancel Button clicked");
+            popupContainer.classList.remove("active");
+            overlay.style.display = "none";
+        });
+    }
+
+    const s3BaseURLImage = "https://s3zaisha-develop.s3.ap-south-1.amazonaws.com/images/";
+    const s3BaseURLvideo = "https://s3zaisha-develop.s3.ap-south-1.amazonaws.com/video/";
+    const s3BaseURLaudio = "https://s3zaisha-develop.s3.ap-south-1.amazonaws.com/recordings/";
+
+    if (storeImei) {
+        const storeURL = `https://feelings.zaisha.co.in/?imei=${storeImei}&type=update`;
+        console.log("storeImei storeURL", storeURL);
+        const memoryRestoreLink = document.querySelector('.memory-restore');
+        // if (memoryRestoreLink) memoryRestoreLink.setAttribute('href', storeURL);
+
+        if (memoryRestoreLink) {
+            const confirmPopup = document.getElementById("confirmPopupconfm");
+            const cancelBtn = document.getElementById("cancelBtnconfm");
+            const confirmBtn = document.getElementById("confirmBtnconfm");
+            if (memoryRestoreLink) {
+                memoryRestoreLink.addEventListener("click", function (event) {
+                    event.preventDefault(); // Prevent default link behavior
+                    confirmPopup.style.display = "flex"; // Show popup
+                });
+            }
+
+            cancelBtn.addEventListener("click", function () {
+                confirmPopup.style.display = "none"; // Hide popup
+            });
+
+            confirmBtn.addEventListener("click", function () {
+                window.location.href = storeURL; // Redirect to store URL
+            });
+
+            // Close popup if user clicks outside the box
+            confirmPopup.addEventListener("click", function (event) {
+                if (event.target === confirmPopup) {
+                    confirmPopup.style.display = "none";
+                }
+            });
+        }
+    }
+
+    const handleMediaRendering = (containerClass, allowedTypes, mediaType, baseURL) => {
+        document.querySelectorAll(`.${containerClass}`).forEach(container => {
+            const djangoURL = container.dataset.url;
+            if (!djangoURL) return;
+
+            const fileName = djangoURL.split('/').pop();
+            const fileURL = baseURL + fileName;
+            const fileExtension = fileName.split('.').pop().toLowerCase();
+
+            let mediaElement = "";
+            if (allowedTypes.includes(fileExtension)) {
+                if (mediaType === "image") {
+                    mediaElement = `<img class="memory-media" src="${fileURL}" alt="Memory Image">`;
+                } else if (mediaType === "video") {
+                    mediaElement = `<video class="memory-media" controls>
+                        <source src="${fileURL}" type="video/${fileExtension}">
+                        Your browser does not support the video tag.
+                    </video>`;
+                } else if (mediaType === "audio") {
+                    mediaElement = `<audio class="memory-media audio" controls>
+                        <source src="${fileURL}" type="audio/${fileExtension}">
+                        Your browser does not support the audio element.
+                    </audio>`;
+                }
+            } else {
+                mediaElement = `<p>Unsupported file type: ${fileName}</p>`;
+            }
+            container.innerHTML = mediaElement;
+        });
+    };
+
+    handleMediaRendering("media-container-photo", ["jpg", "jpeg", "png", "gif", "webp"], "image", s3BaseURLImage);
+    handleMediaRendering("media-container-video", ["mp4", "webm", "ogg"], "video", s3BaseURLvideo);
+    handleMediaRendering("media-container-audio", ["mp3", "wav", "ogg"], "audio", s3BaseURLaudio);
+});
+
+// Prevent Back Button Navigation
+function disableBack() {
+    window.history.forward();
+}
+window.addEventListener("load", disableBack);
+
+function setCookie(name, value, days) {
+    let expires = "";
+    if (days) {
+        let date = new Date();
+        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + encodeURIComponent(value) + "; path=/" + expires;
+}
+
+</script>
+
+</html>

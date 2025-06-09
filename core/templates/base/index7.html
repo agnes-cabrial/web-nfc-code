@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFC Reader and Writer Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; text-align: center; }
+        button { margin: 10px; padding: 10px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        #output { margin-top: 20px; padding: 10px; border: 1px solid #ddd; min-height: 100px; }
+        #permissionButton { display: none; background-color: #2196F3; }
+    </style>
+</head>
+<body>
+    <h1>NFC Reader and Writer</h1>
+    
+    <div>
+        <button onclick="writeTextTag()">Write Text Tag</button>
+        <button onclick="writeUrlTag()">Write URL Tag</button>
+        <button onclick="writeJsonTag()">Write JSON Tag</button>
+        <button onclick="writeNFCTagduplicate()">Write NFC Tag Test</button>
+        <button id="permissionButton" onclick="requestNFCPermission()">Request NFC Permission</button>
+    </div>
+
+    <div id="output"></div>
+
+    <script>
+        // Polyfill for NDEFReader and NDEFWriter if not defined
+        // if (!('NDEFReader' in window)) {
+        //     window.NDEFReader = class {
+        //         constructor() {
+        //             log('NDEFReader not supported in this browser');
+        //         }
+        //         async scan() {
+        //             throw new Error('NFC scanning not supported');
+        //         }
+        //     };
+        // }
+
+        // if (!('NDEFWriter' in window)) {
+        //     window.NDEFWriter = class {
+        //         async write() {
+        //             throw new Error('NFC writing not supported');
+        //         }
+        //     };
+        // }
+
+        // Log function to update output div
+        function log(message) {
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerHTML += `<p>${message}</p>`;
+            console.error(message);
+        }
+
+        async function requestNFCPermission() {
+            try {
+                if (!('NDEFReader' in window)) {
+                    log('NFC is not supported in this browser');
+                    console.log("test4");
+                    return false;
+                }
+
+                const reader = new NDEFReader();
+                await reader.scan();
+                log('NFC Permission Granted');
+                await initNFCReader();
+                document.getElementById('permissionButton').style.display = 'none';
+                return true;
+            } catch (error) {
+                log(`NFC Permission Error: ${error.message}`);
+                document.getElementById('permissionButton').style.display = 'inline-block';
+                return false;
+            }
+        }
+
+        async function initNFCReader() {
+            try {
+                const reader = new NDEFReader();
+                
+                reader.addEventListener('reading', (event) => {
+                    const message = event.message;
+                    log('NFC Message Read:');
+                    
+                    message.records.forEach((record, index) => {
+                        switch (record.recordType) {
+                            case 'text':
+                                const textDecoder = new TextDecoder();
+                                log(`Text Record ${index}: ${textDecoder.decode(record.data)}`);
+                                break;
+                            case 'url':
+                                log(`URL Record ${index}: ${record.data}`);
+                                break;
+                        }
+                    });
+                });
+                
+                reader.addEventListener('readingerror', (error) => {
+                    log(`NFC Reading Error: ${error}`);
+                });
+                
+                await reader.scan();
+            } catch (error) {
+                log(`NFC Scan Error: ${error.message}`);
+            }
+        }
+        
+        async function writeNFCTagduplicate() {
+            message ="https://anthropic.com";
+            type = 'text';
+            try {
+                console.log("render one",message, "message", type,"type");
+                
+                const writer = new NDEFReader();
+                console.log("writer old", writer);
+                
+                switch (type) {
+                    case 'text':
+                        await writer.write({
+                            records: [{ recordType: 'url', data: message }]
+                        });
+                        break;
+                    
+                    default:
+                        throw new Error('Unsupported message type');
+                }
+                
+                log('NFC Tag Written Successfully');
+                return true;
+            } catch (error) {
+                log(`NFC Write Error: ${error.message}`);
+                return false;
+            }
+        }
+        async function writeNFCTag(message, type = 'text') {
+            console.log("writeNFCTag message", message);
+            message ="Vinsinfo sample test data saved successfully !!";
+            try {
+                console.log("render one",message, "message", type,"type");
+                
+                const writer = new NDEFReader(); // change this code for writer to reader
+                console.log("writer old", writer);
+                
+                switch (type) {
+                    case 'text':
+                        await writer.write({
+                            records: [{ recordType: 'text', data: message }]
+                        });
+                        break;
+                    
+                    case 'url':
+                        await writer.write({
+                            records: [{ recordType: 'url', data: message }]
+                        });
+                        break;
+                    
+                    case 'json':
+                        await writer.write({
+                            records: [{
+                                recordType: 'text',
+                                data: JSON.stringify(message)
+                            }]
+                        });
+                        break;
+                    
+                    default:
+                        throw new Error('Unsupported message type');
+                }
+                
+                log('NFC Tag Written Successfully');
+                return true;
+            } catch (error) {
+                log(`NFC Write Error: ${error.message}`);
+                return false;
+            }
+        }
+
+        function writeTextTag() {
+            writeNFCTag(`Text Tag at ${new Date().toLocaleString()}`);
+        }
+
+        function writeUrlTag() {
+            writeNFCTag('https://anthropic.com', 'url');
+        }
+
+        function writeJsonTag() {
+            writeNFCTag({ 
+                id: Math.random().toString(36).substr(2, 9), 
+                timestamp: Date.now() 
+            }, 'json');
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', async () => {
+            console.log("test1");
+            
+            if (!('NDEFReader' in window)) {
+                log('NFC is not supported in this browser');
+                console.log("test2");
+                return;
+            }
+            if ('NFC' in window) {
+                log('NFC is supported in this browser -tested');
+            } else{
+                log('NFC is not supported in this browser');
+                console.log("test3");
+            }
+
+            try {
+                const permission = await navigator.permissions.query({ name: 'nfc' });
+                console.log("test5", permission.state);
+                switch (permission.state) {
+                    case 'granted':
+                        await initNFCReader();
+                        break;
+                    case 'prompt':
+                    case 'denied':
+                        log('NFC permissions need to be granted');
+                        document.getElementById('permissionButton').style.display = 'inline-block';
+                        break;
+                }
+            } catch (error) {
+                log(`NFC Permission Check Error: ${error.message}`);
+                document.getElementById('permissionButton').style.display = 'inline-block';
+            }
+        });
+    </script>
+</body>
+</html>

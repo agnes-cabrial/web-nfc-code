@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Data</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .gift-image {
+            width: 200px;
+            height: 200px;
+            margin: 0px auto;
+            background-color: #ffffff;
+            position: relative;
+        }
+        .gift-bow {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: url("../../../static/images/gift.png");
+            background-size: cover;
+        }
+        .description {
+            margin: 15px 0;
+            font-size: 16px;
+            line-height: 1.5;
+            padding: 10px 20px;
+        }
+        .descriptiontxt{
+            font-size: 16px;
+            line-height: 23px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+        .start-button {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 15px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 50px;
+        }
+        .start-button:hover, .start-button:focus{
+            background-color: #D2B48C;
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            .gift-image {
+                width: 150px;
+                height: 150px;
+            }
+            .description {
+                font-size: 14px;
+            }
+        }
+        a { text-decoration: none; }
+        .failure--popup {
+            width: 100%;
+            max-width: 250px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            z-index:9999;
+        }
+        .failure--popup button {
+            padding: 10px 30px;
+            margin-top: 10px;
+            background: #000;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 999;
+        }
+        .warning-icon {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        .input-container {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            padding: 5px;
+            border-radius: 50px;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+            width: 230px;
+            position: relative;
+        }
+        .input-container input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 10px 15px;
+            font-size: 14px;
+            border-radius: 50px;
+            background: rgba(255, 0, 0, 0.05);
+            color: #333;
+        }
+        .input-container input::placeholder {
+            color: rgba(0, 0, 0, 0.4);
+        }
+        .warn--body h2{
+            margin: 0px 0px 10px;
+            font-size: 24px;
+            line-height: 20px;
+            color: rgb(128, 22, 22);
+        }
+        .warn--body{
+            padding: 20px 10px;
+        }
+        .warn--body p{
+            text-align: justify;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <input type="hidden" id="imei" value="{{ imei }}">
+    <div class="container">
+        <div class="logo"></div>
+        <img src="../../../static/images/bg.png" width="150px;" height="auto;">
+        <div class="gift-image">
+            <div class="gift-bow"></div>
+        </div>
+        <div class="description">
+            <p class="descriptiontxt">Store a memory into your totwoo jewelry.
+                The memory will be unveiled by tapping
+                totwoo to an NFC-enable smartphone.</p>
+        </div>
+        <!-- <button id="scanButton">Scan</button> -->
+        <a href="{% url 'core:set-data' %}?imei={{ imei }}" id="scanButton" class="start-button">   Let's Make Memories!</a>
+        <p id="nfc-status"></p>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <div id="failurePopup" class="failure--popup" style="display: none;">
+        
+        <div class="warn--header">
+            <img src="../../../static/images/warning.png" class="warning-icon" />
+        </div>
+        <div class="warn--body">
+            <h2>Access Denied</h2>
+            <p>You do not have permission to view this page. Please contact the administrator for assistance.</p>
+        </div>
+        <button id="close--btn">Got it</button>
+    </div> 
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            var showPopup = "{{ show_popup|default:'False' }}";
+            if (showPopup.trim() === "True") {  
+                document.getElementById("failurePopup").style.display = "block";
+                overlay.style.display = "block";
+                var scanButton = document.getElementById("scanButton");
+                if (scanButton) {
+                    scanButton.disabled = true;
+                }
+            }
+        };
+        // Check for Web NFC API support
+        scanButton.addEventListener("click", async () => {
+            console.log("User clicked scan button");
+          
+            try {
+              const ndef = new NDEFReader();
+              await ndef.scan();
+              console.log("> Scan started");
+          
+              ndef.addEventListener("readingerror", () => {
+                console.log("Argh! Cannot read data from the NFC tag. Try another one?");
+              });
+          
+              ndef.addEventListener("reading", ({ message, serialNumber }) => {
+                console.log(`> Serial Number: ${serialNumber}`);
+                console.log(`> Records: (${message.records.length})`);
+              });
+            } catch (error) {
+                console.log("Argh! " + error);
+            }
+          });
+          
+          writeButton.addEventListener("click", async () => {
+            console.log("User clicked write button");
+          
+            try {
+              const ndef = new NDEFReader();
+              await ndef.write("Hello world!");
+              console.log("> Message written");
+            } catch (error) {
+                console.log("Argh! " + error);
+            }
+          });
+          
+          makeReadOnlyButton.addEventListener("click", async () => {
+            console.log("User clicked make read-only button");
+          
+            try {
+              const ndef = new NDEFReader();
+              await ndef.makeReadOnly();
+              console.log("> NFC tag has been made permanently read-only");
+            } catch (error) {
+                console.log("Argh! " + error);
+            }
+          });
+    </script>
+</body>
+</html>

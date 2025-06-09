@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+    <title>Image Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffffff;
+        }
+        .upload-container {
+            text-align: center;
+        } 
+        .dots-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .dot.active {
+            background-color: black;
+        }
+        #audio-container{
+          max-width: 230px;
+        }
+        #audio{
+          width: 200px;
+          height: 40px;
+          margin: 10px 0px;
+        }
+        #upload-button {
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #000000; 
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 15px 25px;
+        }
+        #upload-button2 {
+          font-size: 16px;
+          cursor: pointer;
+          background-color: #000000; /* Green button */
+          color: white;
+          border: none;
+          border-radius: 50px;
+          padding: 15px 25px;
+      }
+      #upload-button3 {
+        border-radius: 50px;
+        padding: 15px 25px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #000000; /* Green button */
+        color: white;
+        border: none;
+    }
+        #file-input {
+            display: none; /* Hidden file input */
+        }
+        #video-input {
+          display: none; 
+        }
+        .image-preview-container{
+          text-align: center;
+        }
+        #image-preview {
+            margin-top: 20px;
+            max-width: 250px;
+            max-height: 300px;
+            width: 100%;
+            height: 100%;
+        }
+        .container {
+          text-align: center;
+          padding: 0px;
+          overflow: hidden;
+          margin: 0;
+          max-width: 400px;
+          width: 100%;
+      }
+      .logo {
+          font-size: 24px;
+          font-weight: bold;
+          margin-bottom: 20px;
+      }
+      .gift-image {
+          width: 200px;
+          height: 200px;
+          margin: 20px auto;
+          background-color: #ffffff;
+          position: relative;
+      }
+      .gift-bow {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-image: url("../../../static/images/gift.png");
+          background-size: cover;
+      }
+      .description {
+          margin: 20px 0;
+          font-size: 16px;
+          line-height: 1.5;
+      }
+      .start-button {
+          background-color: #000;
+          color: #fff;
+          border: none;
+          padding: 10px 20px;
+          font-size: 16px;
+          cursor: pointer;
+          border-radius: 50px;
+      }
+      @media (max-width: 480px) {
+          .gift-image {
+              width: 150px;
+              height: 150px;
+          }
+          .description {
+              font-size: 14px;
+          }
+      }
+      a { text-decoration: none; }
+      /* custom design */
+      .media-list-section{
+        margin: 0;
+        padding: 40px 0px;
+      }
+      .upload-card--list{
+        display: block;
+        background-color: #fff;
+        border: 1px solid #fff;
+        padding: 30px 30px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        text-align: center;
+        margin: 20px;
+        position: relative;
+      }
+      .upload-card--list img{
+        border: 1px solid;
+        padding: 28px;
+        border-radius: 50px;
+        width: 100%;
+        max-width: 60px;
+        height: auto;
+        background-color: #000;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 0px auto;
+        top: -59px;
+        z-index: 999;
+      }
+      .upload-title{
+        font-size: 30px;
+        line-height: 41px;
+        font-weight: 800;
+        padding: 25px;
+      }
+      .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: auto;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 20px 40px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        text-align: center;
+        display: none;
+        z-index: 1000;
+        }
+
+        /* Close Button */
+      .popup .close-btn {
+          position: absolute;
+          top: 10px;
+          right: 15px;
+          cursor: pointer;
+          font-size: 20px;
+          background: none;
+          border: none;
+      }
+      .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 999;
+        }
+        .preview--txt {
+          font-size: 30px;
+          line-height: 40px;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          margin: 0px 0px 10px;
+        }
+        .form-group{
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 10px;
+        }
+        .form-group label{
+          text-align: start;
+          font-size: 14px;
+          line-height: 20px;
+          letter-spacing: 2px;
+          padding: 5px 0px;
+        }
+        .form-input-popup{
+          border: none;
+          border-bottom: 1px solid #bbb;
+          padding: 5px 0px;
+          vertical-align: middle;
+        }
+        .form-input-popup:focus{
+          border: none;
+          border-bottom: 1px solid #bbb;
+          outline: none;
+        }
+        #video-preview{
+          width: 100%;
+          height: auto;
+        }
+        .custom-loader {
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          display: inline-block;
+          border-top: 4px solid #D2B48C;
+          border-right: 4px solid transparent;
+          position: absolute;
+          top: 43%;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 999;
+          box-sizing: border-box;
+          margin: 0 auto;
+          animation: rotation 1s linear infinite;
+        }
+        .custom-loader::after {
+          content: '';  
+          box-sizing: border-box;
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          border-left: 4px solid #fff;
+          border-bottom: 4px solid transparent;
+          animation: rotation 0.5s linear infinite reverse;
+          z-index: 999;
+        }
+        @keyframes rotation {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        } 
+        .media-list-section {
+            position: relative;
+            overflow: hidden; 
+            width: 100%; 
+        }
+
+        .slider-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: calc(100% * 1.5); 
+        }
+
+        .upload-card--list {
+            flex: 0 0 calc(100% / 1.5);
+            margin-right: 10px;
+        }
+        .submit_btn, .submit_btn_audio{
+            font-size: 14px;
+            line-height:19px;
+            cursor: pointer;
+            background-color: #000000; 
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 8px 25px;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .recorder-container {
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+        }
+        .record-btn {
+            background-color: #D2B48C;
+            color: white;
+            font-size: 12px;
+            padding: 10px;
+            border: none;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            box-shadow: 0px 4px 10px #D2B48C;
+        }
+
+        .record-btn:hover {
+            background-color: #000;
+        }
+
+        .recording-indicator {
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+            display: none;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.6; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Stop button */
+        .stop-btn {
+            background-color: black;
+            color: white;
+            font-size: 12px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+        }
+
+        .stop-btn:hover {
+            background-color: #D2B48C;
+        }
+
+        /* Disable stop button */
+        .stop-btn:disabled {
+            background-color: #D2B48C;
+            cursor: not-allowed;
+        }
+
+        /* Audio player */
+        audio {
+            width: 100%;
+            max-width: 350px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        .recorder-sub-container{
+          display: flex;
+          gap: 10px;
+          justify-content: flex-start;
+          align-items: center;
+          margin: 10px 0px;
+        }
+
+
+   </style>
+</head>
+<body>
+  <!-- <input type="hidden" id="imei" value="{{ imei }}"> -->
+  <div class="container">
+    <div class="logo"></div>
+    <img src="../../../static/images/bg.png" width="150px;" height="auto;">
+    <p id="nfc-status"></p>
+  <form id="upload-form" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="hidden" name="update_mode" value="{{ update_mode|yesno:'true,false' }}">
+    <ul class="media-list-section">
+      <li class="upload-card--list">
+          <img src="../../../static/images/photo-camera.png" alt="Camera Icon">
+          <p class="upload-title">PHOTO</p>
+          <button class="upload--btn" id="upload-button">Upload Image</button>
+          <input type="file" name="image_file" id="file-input" accept="image/*">
+      </li>
+      <li class="upload-card--list">
+          <img src="../../../static/images/video-camera.png" alt="Video Icon">
+          <p class="upload-title">VIDEO</p>
+          <button class="upload--btn" id="upload-button2">Upload Video</button>
+          <input type="file" name="video_file" id="video-input" accept="video/*">
+      </li>
+      <li class="upload-card--list">
+          <img src="../../../static/images/voice-recorder.png" alt="Audio Icon">
+          <p class="upload-title">VOICE</p>
+          <button class="upload--btn" id="upload-button3" >Upload Voice</button>
+          <input type="file" name="audio_file" id="audio_file" hidden>
+      </li>
+    </ul>
+  </div>
+  <div class="popup" id="audio-container" style="display: none;">
+    <h2 class="preview--txt">Memory</h2>
+    <div id="preview-form">
+      <div class="form-group">
+        <label for="name">BY</label>
+        <input type="text" class="form-input-popup" id="audio-name" name="audio-name" required placeholder="Your Name" />
+      </div>
+      <div class="form-group">
+        <textarea id="audio-comments" class="form-input-popup" name="audio-comments" rows="1" placeholder="Your words"></textarea>
+      </div>  
+      <div class="recorder-container">
+        <div class="recorder-sub-container">
+          <button id="start" class="record-btn">
+            <span class="recording-indicator"></span>
+            Start
+            <span id="record-timer">0:00</span>
+        </button>
+        <button id="stop" class="stop-btn" disabled>Stop</button>
+        </div>
+        
+        <audio id="audio" controls></audio>
+    </div>
+    
+    </div>
+    <button class="submit_btn_audio" type="submit">Submit</button>
+    <!-- <input type="submit" value="Submit" id="upload-button"> -->
+  </div>
+</form> 
+<div class="overlay" id="overlay"></div>
+<div id="popup-preview-container" class="popup">
+  <h2 class="preview--txt">Memory</h2>
+  
+  <div id="preview-form">
+    <div class="form-group">
+      <label for="name">BY</label>
+      <input type="text" class="form-input-popup" id="preview-name" name="preview-name" required placeholder="Your Name" />
+    </div>
+    <div class="form-group">
+      <textarea id="preview-comments" class="form-input-popup" name="preview-comments" rows="1" placeholder="Your words"></textarea>
+    </div>
+    <div class="image-preview-container">
+      <img id="image-preview" style="display: none;" />
+    </div>
+    
+    <div class="video-preview-container">
+      <video id="video-preview" controls style="display: none;"></video>
+    </div>
+    <button class="submit_btn" type="submit">Submit</button>
+  </div>
+</div>
+<div class="custom-loader" id="custom-loader" style="display: none;"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        // Get the elements
+        const uploadButton = document.getElementById('upload-button');
+        const uploadButton2 = document.getElementById('upload-button2');
+        const uploadButton3 = document.getElementById('upload-button3');
+        const fileInput = document.getElementById('file-input');
+        const videoInput = document.getElementById('video-input');
+        const imagePreview = document.getElementById('image-preview');
+        const popupPreview = document.getElementById('popup-preview-container');
+        const overlay = document.getElementById('overlay');
+        const videoPreview = document.getElementById('video-preview');
+        const uploadForm = document.getElementById('upload-form');
+        const start = document.getElementById('start');
+        const stop = document.getElementById('stop');
+        const hiddenDiv = document.getElementById('audio-container');
+        const customLoader = document.getElementById('custom-loader');
+        const submitButton = document.querySelector('.submit_btn');
+        const submitButtonAudio = document.querySelector('.submit_btn_audio');
+        //imei passed
+        const urlParams = new URLSearchParams(window.location.search);
+        const imei = urlParams.get("imei");
+
+        // Trigger file input when upload button is clicked
+        uploadButton.addEventListener('click', () => {
+            event.preventDefault();
+            hiddenDiv.style.display = 'none';
+            fileInput.click(); // Simulate file input click
+        });
+        uploadButton2.addEventListener('click', () => {
+          event.preventDefault();
+          hiddenDiv.style.display = 'none';
+          videoInput.click(); // Simulate file input click
+        });
+
+        uploadButton3.addEventListener('click', () => {
+          event.preventDefault();
+        });
+
+        start.addEventListener('click', () => {
+          event.preventDefault();
+        });
+        stop.addEventListener('click', () => {
+          event.preventDefault();
+        });
+        fileInput.addEventListener('change', (event) => {
+          const file = event.target.files[0];
+          if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+              imagePreview.src = e.target.result;
+              imagePreview.style.display = 'block';
+              popupPreview.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+            overlay.style.display = 'block';
+          } else {
+            alert('Please select a valid image file.');
+          }
+        });
+
+        // Handle form submission
+        function validateAndSubmit(formType, imei) {
+          let nameFieldId = formType === 'audio' ? 'audio-name' : 'preview-name';
+          let commentsFieldId = formType === 'audio' ? 'audio-comments' : 'preview-comments';
+          console.log("nameFieldId", nameFieldId,"commentsFieldId", commentsFieldId);
+          
+          let nameValue = document.getElementById(nameFieldId).value.trim();
+          let commentsValue = document.getElementById(commentsFieldId).value.trim();
+          console.log("nameValue", nameValue,"commentsValue", commentsValue);
+          if (!nameValue || !commentsValue) {
+              alert("Please enter your name and comments before submitting.");
+              return;
+          }
+
+          // Remove any existing hidden inputs before appending new ones
+          document.querySelectorAll(`[name="${formType}-name"], [name="${formType}-comments"]`).forEach(input => input.remove());
+
+          let nameInput = document.createElement('input');
+          nameInput.type = 'hidden';
+          nameInput.name = 'name';
+          nameInput.value = nameValue;
+
+          let commentsInput = document.createElement('input');
+          commentsInput.type = 'hidden';
+          commentsInput.name = 'comments';
+          commentsInput.value = commentsValue;
+          console.log("test render 1233", nameInput,"commentsInput", commentsInput);
+
+          let imeiInput = document.createElement('input');
+          imeiInput.type = 'hidden';
+          imeiInput.name = 'imei';
+          imeiInput.value = imei;
+          console.log("test render 1233", nameInput,"commentsInput", imeiInput);
+          
+          uploadForm.appendChild(nameInput);
+          uploadForm.appendChild(imeiInput);
+          uploadForm.appendChild(commentsInput);
+          if (formType === 'audio') {
+              videoPreview.style.display = 'none';
+          } else {
+              videoPreview.style.display = 'none';
+              popupPreview.style.display = 'none';
+          }
+          customLoader.style.display = 'block';
+          if(imei){
+            uploadForm.submit();
+            uploadForm.reset();
+          }
+      }
+
+      // Audio form submission handler
+      submitButtonAudio.addEventListener('click', (event) => {
+          console.log("render clicke audio");
+          
+          event.preventDefault();
+          console.log("Audio form render clicked");
+          var hiddenDiv = document.getElementById('audio-container');
+          customLoader.style.display = 'block';
+          hiddenDiv.style.display = 'none';
+          validateAndSubmit('audio', imei);
+      });
+
+      // Image/Video form submission handler
+      submitButton.addEventListener('click', (event) => {
+          event.preventDefault();
+          console.log("Image/Video form render clicked");
+          validateAndSubmit('image', imei);
+      });
+
+      videoInput.addEventListener('change', (event) => {
+          const file = event.target.files[0];
+          if (file && file.type.startsWith('video/')) {
+              const reader = new FileReader();
+              reader.onload = (e) => {
+                  videoPreview.src = e.target.result;
+                  videoPreview.style.display = 'block';
+                  popupPreview.style.display = 'block';
+                  overlay.style.display = 'block';
+              };
+              reader.readAsDataURL(file);
+              // uploadForm.submit();
+          } else {
+              alert('Please select a valid Video file.');
+              videoPreview.style.display = 'none';
+          }
+      });
+    </script>
+  <script>
+   document.addEventListener('DOMContentLoaded', async () => {
+      console.log("tested listener");
+
+      // Check if NFC is supported
+      if ('NDEFReader' in window) {
+        console.log("NFC is available");
+
+        try {
+          const reader = new NDEFReader();
+          await reader.scan();
+          console.log("NFC scanning started successfully");
+
+          // Handle NFC data when a tag is detected
+          reader.onreading = (event) => {
+            const decoder = new TextDecoder();
+            for (const record of event.message.records) {
+              console.log('Record data:', decoder.decode(record.data));
+            }
+          };
+
+        } catch (error) {
+          console.error('NFC scanning failed:', error);
+        }
+
+      } else {
+        console.warn('NFC is not supported in this browser.');
+      }
+    });
+
+      
+      function startNFCReading() {
+        console.log("startNFCReading");
+        
+        const reader = new NDEFReader();
+        
+        reader.addEventListener('reading', (event) => {
+          const message = event.message;
+          console.log('NFC Message Read:', message);
+          
+          // Process NFC message records
+          message.records.forEach((record, index) => {
+            switch (record.recordType) {
+              case 'text':
+                const textDecoder = new TextDecoder();
+                console.log(`Text Record ${index}:`, textDecoder.decode(record.data));
+                break;
+              case 'url':
+                console.log(`URL Record ${index}:`, record.data);
+                break;
+              // Add more record type handling as needed
+            }
+          });
+        });
+        
+        reader.addEventListener('readingerror', (error) => {
+          console.error('NFC Reading Error:', error);
+          alert("Read Error")
+        });
+        reader.scan().catch(error => {
+          console.error('NFC Scan Error:', error);
+        });
+      }
+  </script>
+  <!--Custom audio controller -->
+  <script>
+    let mediaRecorder;
+    let audioChunks = [];
+    let audioBlob;
+    let timer;
+    let seconds = 0;
+
+    function updateTimer() {
+        seconds++;
+        const minutes = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        document.getElementById('record-timer').textContent = `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+    }
+
+    document.getElementById('start').addEventListener('click', async () => {
+        console.log("audio recording start");
+        
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(stream);
+        console.log("audio recording start", mediaRecorder);
+        mediaRecorder.ondataavailable = (event) => {
+            audioChunks.push(event.data);
+        };
+        
+        mediaRecorder.onstop = () => {
+            clearInterval(timer);
+            seconds = 0;
+            document.getElementById('record-timer').textContent = '0:00';
+            
+            audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+            audioChunks = [];
+            const audioURL = URL.createObjectURL(audioBlob);
+            document.getElementById('audio').src = audioURL;
+            const file = new File([audioBlob], 'recording.wav', { type: 'audio/wav' });
+            const dataTransfer = new DataTransfer();
+            dataTransfer.items.add(file);
+            document.getElementById('audio_file').files = dataTransfer.files;
+        };
+
+        mediaRecorder.start();
+        timer = setInterval(updateTimer, 1000);
+        document.getElementById('start').disabled = true;
+        document.getElementById('stop').disabled = false;
+    });
+
+    document.getElementById('stop').addEventListener('click', () => {
+        mediaRecorder.stop();
+        document.getElementById('start').disabled = false;
+        document.getElementById('stop').disabled = true;
+    });
+
+</script>
+<script>
+  document.getElementById('upload-button3').addEventListener('click', function() {
+      var hiddenDiv = document.getElementById('audio-container');
+      hiddenDiv.style.display = 'block';
+      overlay.style.display = 'block';
+      // setTimeout(() => {
+      //     customLoader.style.display = 'block';
+      //     hiddenDiv.style.display = 'none';
+      // }, 2000);
+
+  });
+  document.addEventListener("DOMContentLoaded", function () {
+    let currentIndex = 0;
+    const slides = document.querySelectorAll(".media-list-section .upload-card--list");
+    const totalSlides = slides.length;
+    const dotsContainer = document.createElement("div");
+    dotsContainer.classList.add("dots-container");
+    document.querySelector(".media-list-section").appendChild(dotsContainer);
+    slides.forEach((_, index) => {
+        const dot = document.createElement("span");
+        dot.classList.add("dot");
+        dot.dataset.index = index;
+        dotsContainer.appendChild(dot);
+    });
+    const dots = document.querySelectorAll(".dot");
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.style.display = i === index ? "block" : "none";
+            dots[i].classList.toggle("active", i === index);
+        });
+    }
+    dots.forEach((dot) => {
+        dot.addEventListener("click", function () {
+            currentIndex = parseInt(this.dataset.index);
+            showSlide(currentIndex);
+        });
+    });
+    let startX = 0;
+    let endX = 0;
+    const threshold = 50; 
+    document.querySelector(".media-list-section").addEventListener("touchstart", function (event) {
+        startX = event.touches[0].clientX;
+    });
+    document.querySelector(".media-list-section").addEventListener("touchend", function (event) {
+        endX = event.changedTouches[0].clientX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        if (startX - endX > threshold) {
+            currentIndex = (currentIndex + 1) % totalSlides;
+        } else if (endX - startX > threshold) {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        }
+        showSlide(currentIndex);
+    }
+    showSlide(currentIndex);
+});
+
+</script>
+</body>
+</html>

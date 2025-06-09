@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFC Tag Writing</title>
+    <style>
+        .custom-swal-button {
+            background-color: #000 !important; 
+            color: white !important;
+            border-radius: 8px !important;
+            border: none;
+            font-weight: bold !important;
+            padding: 10px 20px !important;
+            text-align: center !important;
+        }
+        .custom-swal-popup {
+            background-color: #f9f9f9 !important; 
+            border-radius: 15px !important;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2) !important;
+        }
+        .swal-footer{
+            text-align: center !important;
+        }
+        .custom-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            width: 70%;
+        }
+
+        .popup-content {
+            text-align: center;
+        }
+
+        .popup-content h2 {
+            margin-bottom: 10px;
+        }
+
+        .popup-content button {
+            padding: 8px 16px;
+            border: none;
+            background: #000;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .popup-content button:focus{
+            background-color: #D2B48C;
+        }
+    </style>
+</head>
+<body>
+<!-- <h1>NFC Write Page</h1>
+<p class="tested ONce">Image uploaded successfully !!</p> -->
+
+<!-- <button id="permissionButton" onclick="requestNFCPermission()">Request NFC Permission</button> -->
+<!-- <button onclick="writeNFCTag('{{ data.photo|default:data.video|default:data.recording }}')">Okay</button> -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+window.onload = () => {
+    requestNFCPermission();
+    writeNFCTag('{{ data.photo|default:data.video|default:data.recording }}');
+};
+
+async function requestNFCPermission() {
+    try {
+        if (!('NDEFReader' in window)) {
+            alert("NFC is not supported on this device.");
+            console.log("NFC not supported");
+            return false;
+        }
+
+        // Permission API
+        const permissionStatus = await navigator.permissions.query({ name: 'nfc' }).catch(() => {
+            console.log("Browser doesn't support NFC permissions API");
+        });
+
+        if (permissionStatus?.state === 'denied') {
+            alert("NFC Permission Denied. Please enable NFC permission in your browser settings.");
+            console.log("NFC Permission Denied");
+            return false;
+        }
+
+        console.log("✅ NFC Permission Granted");
+        swal("Success", "NFC Permission Granted", "success");
+        return true;
+
+    } catch (error) {
+        console.error("NFC Permission Error:", error.message);
+        swal("Error", "NFC Permission Error: " + error.message, "error");
+        return false;
+    }
+}
+
+async function writeNFCTag(message) {
+  try {
+     console.log("data.photo", message);
+    
+    // let message = data.photo || data.video || data.recording || "";
+    console.log("message",message);
+    
+    if (!message) {
+      alert("No URL available to write on NFC tag.");
+      return;
+    }
+ 
+    if (!message.startsWith("http://") && !message.startsWith("https://")) {
+      message = "https://" + message;
+    }
+ 
+    const dataWriter = new NDEFReader();
+    console.log("NFC: URL before write:", message);
+    console.log("NFC: NDEFReader instance:", dataWriter);
+    await dataWriter.scan();
+    console.log("📡 NFC Tag Detected!");
+    swal({
+        title: "Tap again",
+        text: "Save your memory in your jewellery",
+        icon: "info",
+        button:false,
+        className: "custom-swal-popup"
+    });
+    await dataWriter.write({
+        records: [{ recordType: "url", data: message }],
+    });
+    console.log("NFC: Tag written successfully:", message);
+    swal.close()
+    showCustomPopup();
+    // swal({
+    //     title: "Successfully saved",
+    //     text: "",
+    //     icon: "success",
+    //     buttons: false, 
+    //     className: "custom-swal-popup"
+    // }).then(() => {
+    //     showCustomPopup();
+    // });
+    function showCustomPopup() {
+        let popup = document.createElement("div");
+        popup.classList.add("custom-popup");
+        popup.innerHTML = `
+            <div class="popup-content">
+                <h2>Memory Saved!</h2>
+                <p>Now, the memory will be unveiled by tapping Zaisha to an NFC-enabled smartphone.</p>
+                
+            </div>
+        `;
+        document.body.appendChild(popup);
+    }
+    function closePopup() {
+        document.querySelector(".custom-popup").remove();
+    }
+  } catch (error) {
+    console.error("NFC: Write error:", error);
+    let errorMessage = "NFC Write Error: ";
+    if (error && error.message) {
+      errorMessage += error.message;
+    } else {
+      errorMessage += "An unknown error occurred.";
+    }
+    alert(errorMessage);
+  }
+}
+ 
+</script>
+</body>
+</html>
