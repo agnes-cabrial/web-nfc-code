@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFC Auto Scan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        #status {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f4f4f4;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>NFC Auto Scan</h1>
+    <div id="status">Initializing NFC Reader...</div>
+
+    <script>
+        const statusDiv = document.getElementById('status');
+
+        // Function to update status
+        function updateStatus(message, isError = false) {
+            statusDiv.textContent = message;
+            statusDiv.style.color = isError ? 'red' : 'black';
+            console.log(message);
+        }
+
+        // Auto-initialize NFC on page load
+        async function initNFC() {
+            // Check for Web NFC support
+            if (!('NDEFReader' in window)) {
+                updateStatus('Web NFC is not supported', true);
+                return;
+            }
+
+            try {
+                // Create NFC Reader instance
+                const ndef = new NDEFReader();
+
+                // Attempt to scan immediately
+                await ndef.scan();
+                updateStatus('NFC Reader active. Scan a tag...');
+
+                // Listen for reading event
+                ndef.addEventListener('reading', ({ message, serialNumber }) => {
+                    let tagInfo = `Serial Number: ${serialNumber}\n\n`;
+
+                    // Decode and display tag records
+                    message.records.forEach((record, index) => {
+                        try {
+                            const decoder = new TextDecoder();
+                            switch (record.recordType) {
+                                case 'text':
+                                    tagInfo += `Text Record ${index + 1}: ${decoder.decode(record.data)}\n`;
+                                    break;
+                                case 'url':
+                                    tagInfo += `URL Record ${index + 1}: ${decoder.decode(record.data)}\n`;
+                                    break;
+                                default:
+                                    tagInfo += `Record ${index + 1} Type: ${record.recordType}\n`;
+                            }
+                        } catch (decodeError) {
+                            tagInfo += `Error decoding record ${index + 1}: ${decodeError.message}\n`;
+                        }
+                    });
+
+                    updateStatus(tagInfo);
+                });
+
+                // Listen for reading errors
+                ndef.addEventListener('readingerror', () => {
+                    updateStatus('Error reading NFC tag', true);
+                });
+
+            } catch (error) {
+                // Handle any errors during NFC scanning
+                updateStatus(`NFC Initialization Error: ${error.message}`, true);
+            }
+        }
+
+        // Call init function when page loads
+        window.addEventListener('load', initNFC);
+    </script>
+</body>
+</html> 

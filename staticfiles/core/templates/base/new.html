@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Recorder</title>
+</head>
+<body>
+
+<h2>Voice Recorder</h2>
+
+<button id="start">Start Recording</button>
+<button id="stop" disabled>Stop Recording</button>
+
+<audio id="audio" controls></audio>
+
+<form id="upload-form" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="audio_file" id="audio_file" hidden>
+    <button type="submit" id="submit" disabled>Upload</button>
+</form>
+
+<script>
+    let mediaRecorder;
+    let audioChunks = [];
+    let audioBlob;
+
+    document.getElementById('start').addEventListener('click', async () => {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(stream);
+        
+        mediaRecorder.ondataavailable = (event) => {
+            audioChunks.push(event.data);
+        };
+        
+        mediaRecorder.onstop = () => {
+            audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+            audioChunks = [];
+            const audioURL = URL.createObjectURL(audioBlob);
+            document.getElementById('audio').src = audioURL;
+            document.getElementById('submit').disabled = false;
+
+            // Attach the audio file to the hidden file input
+            const file = new File([audioBlob], 'recording.wav', { type: 'audio/wav' });
+            const dataTransfer = new DataTransfer();
+            dataTransfer.items.add(file);
+            document.getElementById('audio_file').files = dataTransfer.files;
+        };
+
+        mediaRecorder.start();
+        document.getElementById('start').disabled = true;
+        document.getElementById('stop').disabled = false;
+    });
+
+    document.getElementById('stop').addEventListener('click', () => {
+        mediaRecorder.stop();
+        document.getElementById('start').disabled = false;
+        document.getElementById('stop').disabled = true;
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFC API Diagnostics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .diagnostic-section {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+    <h1>Web NFC Diagnostic Tool</h1>
+    
+    <div id="browserInfo" class="diagnostic-section">
+        <h2>Browser Information</h2>
+        <p id="userAgent"></p>
+        <p id="platform"></p>
+    </div>
+
+    <div id="nfcSupport" class="diagnostic-section">
+        <h2>NFC Support Check</h2>
+        <p id="nfcStatus"></p>
+    </div>
+
+    <div id="compatibilityWarning" class="diagnostic-section">
+        <h2>Compatibility Notes</h2>
+        <ul>
+            <li>Web NFC is currently supported only in Chrome for Android (version 89+)</li>
+            <li>Requires HTTPS or localhost</li>
+            <li>Must be run on an actual Android device</li>
+            <li>Experimental feature - may require flag enabling</li>
+        </ul>
+    </div>
+
+    <div id="troubleshootingSteps" class="diagnostic-section">
+        <h2>Troubleshooting Steps</h2>
+        <ol>
+            <li>Ensure you're using Chrome browser on Android</li>
+            <li>Open <code>chrome://flags</code> in Chrome</li>
+            <li>Search for "Web NFC" or "Experimental Web Platform features"</li>
+            <li>Enable these experimental features</li>
+            <li>Restart Chrome</li>
+        </ol>
+    </div>
+
+    <script>
+        const browserInfo = document.getElementById('userAgent');
+        const platformInfo = document.getElementById('platform');
+        const nfcStatus = document.getElementById('nfcStatus');
+        const ndef = new NDEFReader();
+        await ndef.scan();
+        await ndef.write(data);
+
+        // Detailed browser and system information
+        browserInfo.textContent = `User Agent: ${navigator.userAgent}`;
+        platformInfo.textContent = `Platform: ${navigator.platform}`;
+
+        // NFC Support Check
+        function checkNFCSupport() {
+
+            
+    // Check for NDEFReader
+            if ('NDEFReader' in window) {
+                nfcStatus.innerHTML = '<span class="success">✓ Web NFC API (NDEFReader) is available</span>';
+            } else {
+                nfcStatus.innerHTML = `
+                    <span class="error">✗ Web NFC API (NDEFReader) NOT found</span>
+                    <br>Possible reasons:
+                    <ul>
+                        <li>Unsupported browser</li>
+                        <li>Not on Android</li>
+                        <li>Experimental features not enabled</li>
+                        <li>Outdated browser version</li>
+                    </ul>
+                `;
+            }
+
+            // Additional checks
+            console.log('Window object keys:', Object.keys(window));
+            console.log('Navigator object keys:', Object.keys(navigator));
+        }
+
+        // Additional browser checks
+        function additionalBrowserChecks() {
+            console.log('Is mobile device:', /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+            console.log('Is Chrome:', /Chrome/i.test(navigator.userAgent));
+        }
+
+        // Run checks
+        checkNFCSupport();
+        additionalBrowserChecks();
+    </script>
+</body>
+</html>

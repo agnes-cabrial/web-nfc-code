@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFC Tag Reader</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        #status {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f4f4f4;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>NFC Tag Reader</h1>
+    <div id="status">No NFC tag scanned yet</div>
+    <button id="scanButton">Scan NFC Tag</button>
+
+    <script>
+        const statusDiv = document.getElementById('status');
+        const scanButton = document.getElementById('scanButton');
+
+        // Check if Web NFC is supported
+        if ('NDEFReader' in window) {
+            scanButton.addEventListener('click', async () => {
+                try {
+                    // Request permission to scan NFC tags
+                    const ndef = new NDEFReader();
+                    await ndef.scan();
+
+                    statusDiv.textContent = 'Scan an NFC tag...';
+
+                    // Listen for NFC tag reading
+                    ndef.addEventListener('reading', ({ message, serialNumber }) => {
+                        // Process the NFC tag data
+                        let tagContent = '';
+                        
+                        // Iterate through records in the NFC tag
+                        for (const record of message.records) {
+                            switch (record.recordType) {
+                                case 'text':
+                                    const textDecoder = new TextDecoder();
+                                    tagContent += `Text: ${textDecoder.decode(record.data)}\n`;
+                                    break;
+                                case 'url':
+                                    const urlDecoder = new TextDecoder();
+                                    tagContent += `URL: ${urlDecoder.decode(record.data)}\n`;
+                                    break;
+                                default:
+                                    tagContent += `Record Type: ${record.recordType}\n`;
+                            }
+                        }
+
+                        // Display tag information
+                        statusDiv.innerHTML = `
+                            NFC Tag Scanned!<br>
+                            Serial Number: ${serialNumber}<br>
+                            Content:<br>
+                            <pre>${tagContent}</pre>
+                        `;
+                    });
+
+                    ndef.addEventListener('readingerror', () => {
+                        statusDiv.textContent = 'Error reading NFC tag';
+                    });
+
+                } catch (error) {
+                    statusDiv.textContent = `Error: ${error}`;
+                }
+            });
+        } else {
+            // Browser does not support Web NFC API
+            scanButton.disabled = true;
+            statusDiv.textContent = 'Web NFC is not supported in this browser';
+        }
+    </script>
+</body>
+</html>

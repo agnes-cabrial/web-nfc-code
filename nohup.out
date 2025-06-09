@@ -1,0 +1,3636 @@
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Error: That port is already in use.
+Database connected successfully!
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/django/core/management/base.py", line 413, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/usr/local/lib/python3.10/dist-packages/django/core/management/commands/runserver.py", line 75, in execute
+    super().execute(*args, **options)
+  File "/usr/local/lib/python3.10/dist-packages/django/core/management/base.py", line 459, in execute
+    output = self.handle(*args, **options)
+  File "/usr/local/lib/python3.10/dist-packages/django/core/management/commands/runserver.py", line 82, in handle
+    if not settings.DEBUG and not settings.ALLOWED_HOSTS:
+  File "/usr/local/lib/python3.10/dist-packages/django/conf/__init__.py", line 81, in __getattr__
+    self._setup(name)
+  File "/usr/local/lib/python3.10/dist-packages/django/conf/__init__.py", line 68, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/usr/local/lib/python3.10/dist-packages/django/conf/__init__.py", line 166, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/ubuntu/Zaisha/mysite/settings.py", line 15, in <module>
+    import psycopg2
+ModuleNotFoundError: No module named 'psycopg2'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/Zaisha/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Zaisha/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/usr/local/lib/python3.10/dist-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/usr/local/lib/python3.10/dist-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/usr/local/lib/python3.10/dist-packages/django/core/management/base.py", line 426, in run_from_argv
+    connections.close_all()
+  File "/usr/local/lib/python3.10/dist-packages/django/utils/connection.py", line 84, in close_all
+    for conn in self.all(initialized_only=True):
+  File "/usr/local/lib/python3.10/dist-packages/django/utils/connection.py", line 76, in all
+    return [
+  File "/usr/local/lib/python3.10/dist-packages/django/utils/connection.py", line 73, in __iter__
+    return iter(self.settings)
+  File "/usr/local/lib/python3.10/dist-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.10/dist-packages/django/utils/connection.py", line 45, in settings
+    self._settings = self.configure_settings(self._settings)
+  File "/usr/local/lib/python3.10/dist-packages/django/db/utils.py", line 148, in configure_settings
+    databases = super().configure_settings(databases)
+  File "/usr/local/lib/python3.10/dist-packages/django/utils/connection.py", line 50, in configure_settings
+    settings = getattr(django_settings, self.settings_name)
+  File "/usr/local/lib/python3.10/dist-packages/django/conf/__init__.py", line 81, in __getattr__
+    self._setup(name)
+  File "/usr/local/lib/python3.10/dist-packages/django/conf/__init__.py", line 68, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/usr/local/lib/python3.10/dist-packages/django/conf/__init__.py", line 166, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/ubuntu/Zaisha/mysite/settings.py", line 15, in <module>
+    import psycopg2
+ModuleNotFoundError: No module named 'psycopg2'
+Error uploading file to S3: File does not exist: https:/s3zaisha-test.s3.amazonaws.com/images/1-spring-flowers-in-a-park-jacobh_Lb6DB2F.jpg
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 18, 2025 - 19:28:30
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Update mode: True, IMEI: ZGY42D0CGL
+_state: <django.db.models.base.ModelState object at 0x7813a594abf0>
+created_on: 2025-03-18 17:46:32.301867+00:00
+video: 
+photo: images/1000167298_tXi3bNt.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: d7d07b7c-0e08-4571-a9d2-1eb898e4253b
+imei: ZGY42D0CGL
+is_name: Jose
+is_comments: Get surprised 🤯
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/1000167298_tXi3bNt.webp
+_state: <django.db.models.base.ModelState object at 0x7813a58ff490>
+created_on: 2025-03-18 17:46:32.301867+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/1000167298_tXi3bNt.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: d7d07b7c-0e08-4571-a9d2-1eb898e4253b
+imei: ZGY42D0CGL
+is_name: Jose
+is_comments: Get surprised 🤯
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/1000167298_tXi3bNt.webp
+Update mode: True, IMEI: ZGY42D0CGL
+_state: <django.db.models.base.ModelState object at 0x78139d8767d0>
+created_on: 2025-03-18 17:51:10.325696+00:00
+video: video/1000167304_KO0xcZa.mp4
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 9b7f6130-fcd3-4c0a-bc70-96287f6a536b
+imei: ZGY42D0CGL
+is_name: Agnes
+is_comments: My best world tour map 🗺️
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/1000167304_KO0xcZa.mp4
+_state: <django.db.models.base.ModelState object at 0x78139f47d060>
+created_on: 2025-03-18 17:51:10.325696+00:00
+video: https://s3zaisha-test.s3.amazonaws.com/video/1000167304_KO0xcZa.mp4
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 9b7f6130-fcd3-4c0a-bc70-96287f6a536b
+imei: ZGY42D0CGL
+is_name: Agnes
+is_comments: My best world tour map 🗺️
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/video/1000167304_KO0xcZa.mp4
+Update mode: True, IMEI: 9XM6D9QGLE6
+_state: <django.db.models.base.ModelState object at 0x78139d739bd0>
+created_on: 2025-03-18 17:54:26.907711+00:00
+video: 
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 9c61689f-335c-42a4-8a2f-4bca4cda938a
+imei: 9XM6D9QGLE6
+is_name: Muruga
+is_comments: Happy Birthday
+_state: <django.db.models.base.ModelState object at 0x78139d739600>
+created_on: 2025-03-18 17:54:26.907711+00:00
+video: 
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 9c61689f-335c-42a4-8a2f-4bca4cda938a
+imei: 9XM6D9QGLE6
+is_name: Muruga
+is_comments: Happy Birthday
+Update mode: True, IMEI: 9XM6D9QGLE6
+_state: <django.db.models.base.ModelState object at 0x78139d738d60>
+created_on: 2025-03-18 17:54:48.873572+00:00
+video: 
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 66836028-63ba-42eb-8266-bc3d536d26e9
+imei: 9XM6D9QGLE6
+is_name: None
+is_comments: None
+Update mode: True, IMEI: 9XM6D9QGLE6
+_state: <django.db.models.base.ModelState object at 0x78139d874b80>
+created_on: 2025-03-18 17:55:34.242918+00:00
+video: 
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 370a1a59-d094-4de4-908c-ed6996f6d4dd
+imei: 9XM6D9QGLE6
+is_name: Muruga
+is_comments: Happy birthday
+_state: <django.db.models.base.ModelState object at 0x78139d77ea70>
+created_on: 2025-03-18 17:55:34.242918+00:00
+video: 
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 370a1a59-d094-4de4-908c-ed6996f6d4dd
+imei: 9XM6D9QGLE6
+is_name: Muruga
+is_comments: Happy birthday
+Update mode: True, IMEI: 9XM6D9QGLE6
+_state: <django.db.models.base.ModelState object at 0x78139d77ec50>
+created_on: 2025-03-18 17:56:15.453468+00:00
+video: 
+photo: images/1000167301.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: d292ac75-525d-48cb-8c6c-cb2170948827
+imei: 9XM6D9QGLE6
+is_name: Memory
+is_comments: Happy words
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/1000167301.jpg
+_state: <django.db.models.base.ModelState object at 0x78139d8ecd30>
+created_on: 2025-03-18 17:56:15.453468+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/1000167301.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: d292ac75-525d-48cb-8c6c-cb2170948827
+imei: 9XM6D9QGLE6
+is_name: Memory
+is_comments: Happy words
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/1000167301.jpg
+Update mode: True, IMEI: 9XM6D9QGLE6
+_state: <django.db.models.base.ModelState object at 0x78139d70b910>
+created_on: 2025-03-18 18:09:59.983194+00:00
+video: 
+photo: 
+recording: recordings/recording_fPGb7of.wav
+is_assigned: False
+password_protected: False
+password: None
+slug: 2e6c17f2-78bf-4892-893f-b8a6d9a9cf9a
+imei: 9XM6D9QGLE6
+is_name: Kalai
+is_comments: Happy Birthday 🎈
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/recordings/recording_fPGb7of.wav
+_state: <django.db.models.base.ModelState object at 0x78139d709c90>
+created_on: 2025-03-18 18:09:59.983194+00:00
+video: 
+photo: 
+recording: https://s3zaisha-test.s3.amazonaws.com/recordings/recording_fPGb7of.wav
+is_assigned: False
+password_protected: False
+password: None
+slug: 2e6c17f2-78bf-4892-893f-b8a6d9a9cf9a
+imei: 9XM6D9QGLE6
+is_name: Kalai
+is_comments: Happy Birthday 🎈
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/recordings/recording_fPGb7of.wav
+Update mode: True, IMEI: 9XM6D9QGLE6
+_state: <django.db.models.base.ModelState object at 0x78139d88f670>
+created_on: 2025-03-18 18:10:49.918665+00:00
+video: 
+photo: images/1000167607.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: e6f267cc-0f49-4819-8e08-7b7f5d38d92d
+imei: 9XM6D9QGLE6
+is_name: Best one
+is_comments: Ever memories 😁
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/1000167607.jpg
+_state: <django.db.models.base.ModelState object at 0x78139f47e980>
+created_on: 2025-03-18 18:10:49.918665+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/1000167607.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: e6f267cc-0f49-4819-8e08-7b7f5d38d92d
+imei: 9XM6D9QGLE6
+is_name: Best one
+is_comments: Ever memories 😁
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/1000167607.jpg
+Update mode: True, IMEI: 9XM6D9QGLE6
+_state: <django.db.models.base.ModelState object at 0x7813a596f310>
+created_on: 2025-03-19 06:21:33.524349+00:00
+video: 
+photo: images/1-spring-flowers-in-a-park-jacobh_Lb6DB2F.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: b3da4aee-e0d3-49d0-9f96-fff918210efb
+imei: 9XM6D9QGLE6
+is_name: Dam
+is_comments: This is for you
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/1-spring-flowers-in-a-park-jacobh_Lb6DB2F.jpg
+_state: <django.db.models.base.ModelState object at 0x78139f47e860>
+created_on: 2025-03-19 06:21:33.524349+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/1-spring-flowers-in-a-park-jacobh_Lb6DB2F.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: b3da4aee-e0d3-49d0-9f96-fff918210efb
+imei: 9XM6D9QGLE6
+is_name: Dam
+is_comments: This is for you
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/1-spring-flowers-in-a-park-jacobh_Lb6DB2F.jpg
+Update mode: True, IMEI: 9XM6D9QGLE6
+_state: <django.db.models.base.ModelState object at 0x78139c4e23e0>
+created_on: 2025-03-19 06:41:28.817444+00:00
+video: 
+photo: images/dogs-for-first-time-owners_cXjXiVV.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 1cc5f881-a47c-4745-9ef5-c6154819645a
+imei: 9XM6D9QGLE6
+is_name: Dear
+is_comments: Best 🐕 this is for you
+Error uploading file to S3: File does not exist: https:/s3zaisha-test.s3.amazonaws.com/images/dogs-for-first-time-owners_cXjXiVV.jpg
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/dogs-for-first-time-owners_cXjXiVV.jpg
+_state: <django.db.models.base.ModelState object at 0x78139c26cdf0>
+created_on: 2025-03-19 06:41:28.817444+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/dogs-for-first-time-owners_cXjXiVV.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 1cc5f881-a47c-4745-9ef5-c6154819645a
+imei: 9XM6D9QGLE6
+is_name: Dear
+is_comments: Best 🐕 this is for you
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/dogs-for-first-time-owners_cXjXiVV.jpg
+Update mode: True, IMEI: 9XM6D9QGLE6
+_state: <django.db.models.base.ModelState object at 0x78139c2d8ca0>
+created_on: 2025-03-19 06:47:33.038156+00:00
+video: 
+photo: images/1000197317.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 5b79b801-bb45-4db0-9c51-a793296d9cca
+imei: 9XM6D9QGLE6
+is_name: Ashok
+is_comments: My fav ice cream 🍨
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/1000197317.jpg
+_state: <django.db.models.base.ModelState object at 0x78139c26d4e0>
+created_on: 2025-03-19 06:47:33.038156+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/1000197317.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 5b79b801-bb45-4db0-9c51-a793296d9cca
+imei: 9XM6D9QGLE6
+is_name: Ashok
+is_comments: My fav ice cream 🍨
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/1000197317.jpg
+Update mode: True, IMEI: 9XM6D9QGLE6
+_state: <django.db.models.base.ModelState object at 0x78139c2b60e0>
+created_on: 2025-03-19 06:49:14.621765+00:00
+video: 
+photo: 
+recording: recordings/recording_jI92vYy.wav
+is_assigned: False
+password_protected: False
+password: None
+slug: 528dae0b-c964-4fc0-86e0-873c4fcb5827
+imei: 9XM6D9QGLE6
+is_name: Sam
+is_comments: My fav words
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/recordings/recording_jI92vYy.wav
+_state: <django.db.models.base.ModelState object at 0x78139c2b7610>
+created_on: 2025-03-19 06:49:14.621765+00:00
+video: 
+photo: 
+recording: https://s3zaisha-test.s3.amazonaws.com/recordings/recording_jI92vYy.wav
+is_assigned: False
+password_protected: False
+password: None
+slug: 528dae0b-c964-4fc0-86e0-873c4fcb5827
+imei: 9XM6D9QGLE6
+is_name: Sam
+is_comments: My fav words
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/recordings/recording_jI92vYy.wav
+Update mode: True, IMEI: 9XM6D9QGLE6
+_state: <django.db.models.base.ModelState object at 0x78139c112530>
+created_on: 2025-03-19 06:51:21.377172+00:00
+video: 
+photo: images/1000025361.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: b5e117f2-0f5c-4f93-acbb-6ec4d52b8090
+imei: 9XM6D9QGLE6
+is_name: Kavin
+is_comments: Your gift
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/1000025361.jpg
+_state: <django.db.models.base.ModelState object at 0x78139c1130a0>
+created_on: 2025-03-19 06:51:21.377172+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/1000025361.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: b5e117f2-0f5c-4f93-acbb-6ec4d52b8090
+imei: 9XM6D9QGLE6
+is_name: Kavin
+is_comments: Your gift
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/1000025361.jpg
+Update mode: True, IMEI: LA46DRFB6RP
+_state: <django.db.models.base.ModelState object at 0x78139c74fa30>
+created_on: 2025-03-19 06:52:59.316179+00:00
+video: 
+photo: images/1000025506.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: bc8e15aa-c772-4ad5-a0b0-c46c6148adb5
+imei: LA46DRFB6RP
+is_name: Tom
+is_comments: Save your best one data
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/1000025506.jpg
+_state: <django.db.models.base.ModelState object at 0x78139c74f370>
+created_on: 2025-03-19 06:52:59.316179+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/1000025506.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: bc8e15aa-c772-4ad5-a0b0-c46c6148adb5
+imei: LA46DRFB6RP
+is_name: Tom
+is_comments: Save your best one data
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/1000025506.jpg
+Update mode: True, IMEI: Hkf5784Fhng
+_state: <django.db.models.base.ModelState object at 0x78139c26f100>
+created_on: 2025-03-19 06:56:43.313814+00:00
+video: 
+photo: images/1000053864.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 5664d6ea-6add-4f2a-b0d4-0d17be72351a
+imei: Hkf5784Fhng
+is_name: Gupta
+is_comments: Test drive of internet
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/1000053864.jpg
+_state: <django.db.models.base.ModelState object at 0x78139c13f5e0>
+created_on: 2025-03-19 06:56:43.313814+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/1000053864.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 5664d6ea-6add-4f2a-b0d4-0d17be72351a
+imei: Hkf5784Fhng
+is_name: Gupta
+is_comments: Test drive of internet
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/1000053864.jpg
+Update mode: True, IMEI: BLU2QCY5E35
+_state: <django.db.models.base.ModelState object at 0x78139c127d90>
+created_on: 2025-03-19 06:57:53.737376+00:00
+video: 
+photo: images/1000053816.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 8dafe9bb-9a07-463c-abb6-45bc5e2301bf
+imei: BLU2QCY5E35
+is_name: Kishore
+is_comments: Best internet conference
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/1000053816.jpg
+_state: <django.db.models.base.ModelState object at 0x781391a514e0>
+created_on: 2025-03-19 06:57:53.737376+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/1000053816.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 8dafe9bb-9a07-463c-abb6-45bc5e2301bf
+imei: BLU2QCY5E35
+is_name: Kishore
+is_comments: Best internet conference
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/1000053816.jpg
+Update mode: True, IMEI: BLU2QCY5E35
+_state: <django.db.models.base.ModelState object at 0x781391aa7130>
+created_on: 2025-03-19 06:59:04.947230+00:00
+video: 
+photo: 
+recording: recordings/recording_KqsajyU.wav
+is_assigned: False
+password_protected: False
+password: None
+slug: 77c5a885-0e4a-45d5-9c22-687fd7e3a8a1
+imei: BLU2QCY5E35
+is_name: Kishore
+is_comments: Test data
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/recordings/recording_KqsajyU.wav
+_state: <django.db.models.base.ModelState object at 0x781391aa6470>
+created_on: 2025-03-19 06:59:04.947230+00:00
+video: 
+photo: 
+recording: https://s3zaisha-test.s3.amazonaws.com/recordings/recording_KqsajyU.wav
+is_assigned: False
+password_protected: False
+password: None
+slug: 77c5a885-0e4a-45d5-9c22-687fd7e3a8a1
+imei: BLU2QCY5E35
+is_name: Kishore
+is_comments: Test data
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/recordings/recording_KqsajyU.wav
+Update mode: False, IMEI: P43H0YQ692
+_state: <django.db.models.base.ModelState object at 0x78139f55f2e0>
+created_on: 2025-03-19 07:04:14.398724+00:00
+video: 
+photo: images/Screenshot_20250315_182403_WhatsApp.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 3ab5989f-b078-48f1-bd0d-205a5fbae01d
+imei: P43H0YQ692
+is_name: Vaishu
+is_comments: My best moments ✨️ 💛
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/Screenshot_20250315_182403_WhatsApp.jpg
+_state: <django.db.models.base.ModelState object at 0x78139c4fa200>
+created_on: 2025-03-19 07:04:14.398724+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/Screenshot_20250315_182403_WhatsApp.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 3ab5989f-b078-48f1-bd0d-205a5fbae01d
+imei: P43H0YQ692
+is_name: VaishuError uploading file to S3: value too long for type character varying(100)
+
+Error uploading file to S3: File does not exist: https:/s3zaisha-test.s3.amazonaws.com/video/1000486564_faU4cDZ.mp4
+Error uploading file to S3: File does not exist: https:/s3zaisha-test.s3.amazonaws.com/video/1000486564_faU4cDZ.mp4
+Error uploading file to S3: File does not exist: https:/s3zaisha-test.s3.amazonaws.com/video/1000486564_faU4cDZ.mp4
+
+is_comments: My best moments ✨️ 💛
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/Screenshot_20250315_182403_WhatsApp.jpg
+Update mode: True, IMEI: P43H0YQ692
+_state: <django.db.models.base.ModelState object at 0x78139c26fe50>
+created_on: 2025-03-19 07:05:26.344445+00:00
+video: video/20250130_111206.mp4
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: f020f64f-119a-4530-a995-8d8ecf87d7f0
+imei: P43H0YQ692
+is_name: Visdhya
+is_comments: Best view captured 👌
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/20250130_111206.mp4
+_state: <django.db.models.base.ModelState object at 0x7813a596d150>
+created_on: 2025-03-19 07:05:26.344445+00:00
+video: https://s3zaisha-test.s3.amazonaws.com/video/20250130_111206.mp4
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: f020f64f-119a-4530-a995-8d8ecf87d7f0
+imei: P43H0YQ692
+is_name: Visdhya
+is_comments: Best view captured 👌
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/video/20250130_111206.mp4
+Update mode: True, IMEI: P43H0YQ692
+_state: <django.db.models.base.ModelState object at 0x78139c112200>
+created_on: 2025-03-19 07:34:35.167470+00:00
+video: 
+photo: images/dog-puppy-on-garden-royalty-free-image-1586966191_xLVpzAt.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 72796394-8c84-469f-b712-d6b0bf21ed45
+imei: P43H0YQ692
+is_name: John
+is_comments: My favorite dog 🐕 ❤️
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191_xLVpzAt.jpg
+Update mode: True, IMEI: P43H0YQ692
+_state: <django.db.models.base.ModelState object at 0x78139c74fd30>
+created_on: 2025-03-19 07:35:23.461643+00:00
+video: 
+photo: images/详情视频_9aKtuDB.mp4.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: bd520f8c-93e5-4fe0-9139-9348c972959c
+imei: P43H0YQ692
+is_name: My favorite one
+is_comments: You're my sun shine ✨️ 💛
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/%E8%AF%A6%E6%83%85%E8%A7%86%E9%A2%91_9aKtuDB.mp4.webp
+_state: <django.db.models.base.ModelState object at 0x78139d8bfa90>
+created_on: 2025-03-19 07:35:23.461643+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/详情视频_9aKtuDB.mp4.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: bd520f8c-93e5-4fe0-9139-9348c972959c
+imei: P43H0YQ692
+is_name: My favorite one
+is_comments: You're my sun shine ✨️ 💛
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/%E8%AF%A6%E6%83%85%E8%A7%86%E9%A2%91_9aKtuDB.mp4.webp
+Update mode: False, IMEI: 8FMHAG90159
+_state: <django.db.models.base.ModelState object at 0x781392400ac0>
+created_on: 2025-03-19 08:53:20.069850+00:00
+video: 
+photo: images/1000490893.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: c879fd10-fa8b-4690-9db4-ddde1afd8835
+imei: 8FMHAG90159
+is_name: Sahil
+is_comments: Test
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/1000490893.jpg
+_state: <django.db.models.base.ModelState object at 0x78139d88e020>
+created_on: 2025-03-19 08:53:20.069850+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/1000490893.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: c879fd10-fa8b-4690-9db4-ddde1afd8835
+imei: 8FMHAG90159
+is_name: Sahil
+is_comments: Test
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/1000490893.jpg
+Update mode: False, IMEI: 0A15EHZ36PK
+_state: <django.db.models.base.ModelState object at 0x78139d8ec5e0>
+created_on: 2025-03-19 08:55:27.005946+00:00
+video: video/1000486564.mp4
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 4308ef22-fce0-4852-804f-acce4005d86e
+imei: 0A15EHZ36PK
+is_name: Sahil
+is_comments: Bh
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/1000486564.mp4
+_state: <django.db.models.base.ModelState object at 0x78139d8ec3a0>
+created_on: 2025-03-19 08:55:27.005946+00:00
+video: https://s3zaisha-test.s3.amazonaws.com/video/1000486564.mp4
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 4308ef22-fce0-4852-804f-acce4005d86e
+imei: 0A15EHZ36PK
+is_name: Sahil
+is_comments: Bh
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/video/1000486564.mp4
+Update mode: True, IMEI: P43H0YQ692
+_state: <django.db.models.base.ModelState object at 0x78139d8eebf0>
+created_on: 2025-03-19 08:57:28.080234+00:00
+video: 
+photo: images/__yHylrK8.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 5de070da-9dd5-4370-9d40-71d21890bcb8
+imei: P43H0YQ692
+is_name: Hi
+is_comments: Hi
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/__yHylrK8.jpg
+_state: <django.db.models.base.ModelState object at 0x781391a531f0>
+created_on: 2025-03-19 08:57:28.080234+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/__yHylrK8.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 5de070da-9dd5-4370-9d40-71d21890bcb8
+imei: P43H0YQ692
+is_name: Hi
+is_comments: Hi
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/__yHylrK8.jpg
+Update mode: False, IMEI: 0A15EHZ36PK
+_state: <django.db.models.base.ModelState object at 0x78139c29a050>
+created_on: 2025-03-19 08:58:03.182160+00:00
+video: video/1000486564_faU4cDZ.mp4
+photo: 
+recording: recordings/recording_vsNgcXk.wav
+is_assigned: False
+password_protected: False
+password: None
+slug: 592e902d-32b6-47b2-acac-41142f3a1df2
+imei: 0A15EHZ36PK
+is_name: Ashwin
+is_comments: Check
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/1000486564_faU4cDZ.mp4
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/recordings/recording_vsNgcXk.wav
+_state: <django.db.models.base.ModelState object at 0x78139c29b580>
+created_on: 2025-03-19 08:58:03.182160+00:00
+video: https://s3zaisha-test.s3.amazonaws.com/video/1000486564_faU4cDZ.mp4
+photo: 
+recording: https://s3zaisha-test.s3.amazonaws.com/recordings/recording_vsNgcXk.wav
+is_assigned: False
+password_protected: False
+password: None
+slug: 592e902d-32b6-47b2-acac-41142f3a1df2
+imei: 0A15EHZ36PK
+is_name: Ashwin
+is_comments: Check
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/video/1000486564_faU4cDZ.mp4
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/recordings/recording_vsNgcXk.wav
+Update mode: False, IMEI: 0A15EHZ36PK
+_state: <django.db.models.base.ModelState object at 0x781391a513f0>
+created_on: 2025-03-19 08:59:24.362644+00:00
+video: video/1000486564_c8lQCIY.mp4
+photo: 
+recording: recordings/recording_aZDpZAd.wav
+is_assigned: False
+password_protected: False
+password: None
+slug: 31840104-0678-4d2f-acc7-829d785666af
+imei: 0A15EHZ36PK
+is_name: Hah
+is_comments: Bsba
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/1000486564_c8lQCIY.mp4
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/recordings/recording_aZDpZAd.wav
+_state: <django.db.models.base.ModelState object at 0x781391aba770>
+created_on: 2025-03-19 08:59:24.362644+00:00
+video: https://s3zaisha-test.s3.amazonaws.com/video/1000486564_c8lQCIY.mp4
+photo: 
+recording: https://s3zaisha-test.s3.amazonaws.com/recordings/recording_aZDpZAd.wav
+is_assigned: False
+password_protected: False
+password: None
+slug: 31840104-0678-4d2f-acc7-829d785666af
+imei: 0A15EHZ36PK
+is_name: Hah
+is_comments: Bsba
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/video/1000486564_c8lQCIY.mp4
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/recordings/recording_aZDpZAd.wav
+Update mode: True, IMEI: P43H0YQ692
+_state: <django.db.models.base.ModelState object at 0x781391d3a140>
+Error uploading file to S3: File does not exist: https:/s3zaisha-test.s3.amazonaws.com/video/1000486564_JqAz543.mp4
+Error uploading file to S3: File does not exist: https:/s3zaisha-test.s3.amazonaws.com/recordings/recording_wtb7hIC.wav
+Error uploading file to S3: value too long for type character varying(100)
+
+Error uploading file to S3: value too long for type character varying(100)
+
+Error uploading file to S3: File does not exist: https:/s3zaisha-test.s3.amazonaws.com/video/20250317_161241_SD58ljS.mp4
+Error uploading file to S3: File does not exist: https:/s3zaisha-test.s3.amazonaws.com/video/20250317_161241_2X25keJ.mp4
+created_on: 2025-03-19 09:01:07.308765+00:00
+video: 
+photo: 
+recording: recordings/recording_wtb7hIC.wav
+is_assigned: False
+password_protected: False
+password: None
+slug: 067ec3ca-935d-409d-ac8b-f5cd2bfec35f
+imei: P43H0YQ692
+is_name: Test
+is_comments: Fav
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/recordings/recording_wtb7hIC.wav
+_state: <django.db.models.base.ModelState object at 0x781391d3ae90>
+created_on: 2025-03-19 09:01:07.308765+00:00
+video: 
+photo: 
+recording: https://s3zaisha-test.s3.amazonaws.com/recordings/recording_wtb7hIC.wav
+is_assigned: False
+password_protected: False
+password: None
+slug: 067ec3ca-935d-409d-ac8b-f5cd2bfec35f
+imei: P43H0YQ692
+is_name: Test
+is_comments: Fav
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/recordings/recording_wtb7hIC.wav
+Update mode: False, IMEI: FDVXZGAEJNR
+_state: <django.db.models.base.ModelState object at 0x78139c29a560>
+created_on: 2025-03-19 09:07:12.164356+00:00
+video: video/1000486564_JqAz543.mp4
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 13f00606-4107-48c1-beb8-7d947de79dfe
+imei: FDVXZGAEJNR
+is_name: Sahil
+is_comments: Check
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/1000486564_JqAz543.mp4
+_state: <django.db.models.base.ModelState object at 0x78139c29be20>
+created_on: 2025-03-19 09:07:12.164356+00:00
+video: https://s3zaisha-test.s3.amazonaws.com/video/1000486564_JqAz543.mp4
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 13f00606-4107-48c1-beb8-7d947de79dfe
+imei: FDVXZGAEJNR
+is_name: Sahil
+is_comments: Check
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/video/1000486564_JqAz543.mp4
+Update mode: False, IMEI: FDVXZGAEJNR
+_state: <django.db.models.base.ModelState object at 0x78139c13d060>
+created_on: 2025-03-19 09:09:13.715417+00:00
+video: 
+photo: 
+recording: recordings/recording_FN5nx8s.wav
+is_assigned: False
+password_protected: False
+password: None
+slug: b9746759-49b3-49d1-a422-47600865f2c9
+imei: FDVXZGAEJNR
+is_name: Sahil
+is_comments: Test
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/recordings/recording_FN5nx8s.wav
+_state: <django.db.models.base.ModelState object at 0x78139d77d2d0>
+created_on: 2025-03-19 09:09:13.715417+00:00
+video: 
+photo: 
+recording: https://s3zaisha-test.s3.amazonaws.com/recordings/recording_FN5nx8s.wav
+is_assigned: False
+password_protected: False
+password: None
+slug: b9746759-49b3-49d1-a422-47600865f2c9
+imei: FDVXZGAEJNR
+is_name: Sahil
+is_comments: Test
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/recordings/recording_FN5nx8s.wav
+Update mode: True, IMEI: P43H0YQ692
+_state: <django.db.models.base.ModelState object at 0x781392429120>
+created_on: 2025-03-19 09:24:14.510876+00:00
+video: 
+photo: images/electric-plane-ht-ml-240110_1704902584341_hpMain_16x9.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 49a7174c-2154-4185-8ab4-5d2336436f6e
+imei: P43H0YQ692
+is_name: Test
+is_comments: Fav one 💓
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/electric-plane-ht-ml-240110_1704902584341_hpMain_16x9.jpg
+Update mode: True, IMEI: P43H0YQ692
+_state: <django.db.models.base.ModelState object at 0x78139c74f5e0>
+created_on: 2025-03-19 09:24:43.612666+00:00
+video: 
+photo: images/__yQZtUbW.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 94ea2ae3-e4f8-4635-96c0-c9c56b1c7e09
+imei: P43H0YQ692
+is_name: Test
+is_comments: Fav one 💓
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/__yQZtUbW.jpg
+_state: <django.db.models.base.ModelState object at 0x78139c74c3d0>
+created_on: 2025-03-19 09:24:43.612666+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/__yQZtUbW.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 94ea2ae3-e4f8-4635-96c0-c9c56b1c7e09
+imei: P43H0YQ692
+is_name: Test
+is_comments: Fav one 💓
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/__yQZtUbW.jpg
+Update mode: True, IMEI: P43H0YQ692
+_state: <django.db.models.base.ModelState object at 0x78139f47dde0>
+created_on: 2025-03-19 09:25:15.746107+00:00
+video: video/20250317_161241_SD58ljS.mp4
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: c7c0b628-2e6d-43b8-aad2-a3a3ad8cc11d
+imei: P43H0YQ692
+is_name: Tets
+is_comments: Upload
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/20250317_161241_SD58ljS.mp4
+_state: <django.db.models.base.ModelState object at 0x78139c298700>
+created_on: 2025-03-19 09:25:15.746107+00:00
+video: https://s3zaisha-test.s3.amazonaws.com/video/20250317_161241_SD58ljS.mp4
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: c7c0b628-2e6d-43b8-aad2-a3a3ad8cc11d
+imei: P43H0YQ692
+is_name: Tets
+is_comments: Upload
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/video/20250317_161241_SD58ljS.mp4
+Update mode: True, IMEI: P43H0YQ692
+_state: <django.db.models.base.ModelState object at 0x7813925ab490>
+created_on: 2025-03-19 09:37:37.049558+00:00
+video: video/20250317_161241_2X25keJ.mp4
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: fbcdfd9d-2f9a-4138-9ca2-59e21ff8b071
+imei: P43H0YQ692
+is_name: Tedt
+is_comments: Test
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/20250317_161241_2X25keJ.mp4
+_state: <django.db.models.base.ModelState object at 0x78139c112da0>
+created_on: 2025-03-19 09:37:37.049558+00:00
+video: https://s3zaisha-test.s3.amazonaws.com/video/20250317_161241_2X25keJ.mp4
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: fbcdfd9d-2f9a-4138-9ca2-59e21ff8b071
+imei: P43H0YQ692
+is_name: Tedt
+is_comments: Test
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/video/20250317_161241_2X25keJ.mp4
+Update mode: True, IMEI: QJFFXAVNHZD
+_state: <django.db.models.base.ModelState object at 0x7813924285e0>
+created_on: 2025-03-19 12:46:42.603326+00:00
+video: 
+photo: images/1000025240.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 469077d9-9d80-4302-847c-eb9a5fffb6f5
+imei: QJFFXAVNHZD
+is_name: Esai
+is_comments: Testing
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/1000025240.jpg
+_state: <django.db.models.base.ModelState object at 0x78139c2c7940>
+created_on: 2025-03-19 12:46:42.603326+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/1000025240.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 469077d9-9d80-4302-847c-eb9a5fffb6f5
+imei: QJFFXAVNHZD
+is_name: Esai
+is_comments: Testing
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/1000025240.jpg
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 20, 2025 - 11:24:15
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Error uploading file to S3: Reverse for 'output-data' with keyword arguments '{'slug': 'f26b73aa-5347-4f45-87c9-63d7e8904e1f'}' not found. 1 pattern(s) tried: ['output/\\Z']
+Error uploading file to S3: Reverse for 'output-data' with keyword arguments '{'slug': 'c516a6d1-9f88-4707-998b-f8913bf5a429'}' not found. 1 pattern(s) tried: ['output/\\Z']
+Error uploading file to S3: File does not exist: https:/s3zaisha-test.s3.amazonaws.com/images/spring-flowers-65de4a13478ee_cDk9Zdx.jpg
+Error uploading file to S3: Reverse for 'output-data' with keyword arguments '{'slug': '460de8be-f741-438d-b0b4-eaa0b7bf00da'}' not found. 1 pattern(s) tried: ['output/\\Z']
+Error uploading file to S3: Reverse for 'output-data' with keyword arguments '{'slug': '46411557-7cdb-45a6-a366-45769091eb80'}' not found. 1 pattern(s) tried: ['output/\\Z']
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 20, 2025 - 11:24:22
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Update mode: True, IMEI: UXS5EO3SX2R
+_state: <django.db.models.base.ModelState object at 0x71d05075eda0>
+created_on: 2025-03-20 06:06:50.214049+00:00
+video: 
+photo: images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_jjKZa7o.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: f26b73aa-5347-4f45-87c9-63d7e8904e1f
+imei: UXS5EO3SX2R
+is_name: John
+is_comments: Best laptop memories
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_jjKZa7o.webp
+_state: <django.db.models.base.ModelState object at 0x71d04a4303a0>
+created_on: 2025-03-20 06:06:50.214049+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_jjKZa7o.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: f26b73aa-5347-4f45-87c9-63d7e8904e1f
+imei: UXS5EO3SX2R
+is_name: John
+is_comments: Best laptop memories
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_jjKZa7o.webp
+Update mode: True, IMEI: UXS5EO3SX2R
+_state: <django.db.models.base.ModelState object at 0x71d04a489de0>
+created_on: 2025-03-20 06:07:43.790125+00:00
+video: 
+photo: images/spring-flowers-65de4a13478ee_cDk9Zdx.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: c516a6d1-9f88-4707-998b-f8913bf5a429
+imei: UXS5EO3SX2R
+is_name: Test way
+is_comments: One memories ♥️
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/spring-flowers-65de4a13478ee_cDk9Zdx.jpg
+_state: <django.db.models.base.ModelState object at 0x71d04853bd30>
+created_on: 2025-03-20 06:07:43.790125+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/spring-flowers-65de4a13478ee_cDk9Zdx.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: c516a6d1-9f88-4707-998b-f8913bf5a429
+imei: UXS5EO3SX2R
+is_name: Test way
+is_comments: One memories ♥️
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/spring-flowers-65de4a13478ee_cDk9Zdx.jpg
+Update mode: True, IMEI: VCS0ZV1NV1
+_state: <django.db.models.base.ModelState object at 0x71d04a416fe0>
+created_on: 2025-03-20 06:13:57.216446+00:00
+video: 
+photo: images/Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 460de8be-f741-438d-b0b4-eaa0b7bf00da
+imei: VCS0ZV1NV1
+is_name: Test
+is_comments: Image uploaded
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006.jpg
+_state: <django.db.models.base.ModelState object at 0x71d04303beb0>
+created_on: 2025-03-20 06:13:57.216446+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 460de8be-f741-438d-b0b4-eaa0b7bf00da
+imei: VCS0ZV1NV1
+is_name: Test
+is_comments: Image uploaded
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006.jpg
+Update mode: True, IMEI: L86V55IGTCH
+_state: <django.db.models.base.ModelState object at 0x71d043062d10>
+created_on: 2025-03-20 06:17:01.100047+00:00
+video: 
+photo: 
+recording: recordings/recording_mcQt2x5.wav
+is_assigned: False
+password_protected: False
+password: None
+slug: 46411557-7cdb-45a6-a366-45769091eb80
+imei: L86V55IGTCH
+is_name: Test
+is_comments: Voice recording
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/recordings/recording_mcQt2x5.wav
+_state: <django.db.models.base.ModelState object at 0x71d04a433af0>
+created_on: 2025-03-20 06:17:01.100047+00:00
+video: 
+photo: 
+recording: https://s3zaisha-test.s3.amazonaws.com/recordings/recording_mcQt2x5.wav
+is_assigned: False
+password_protected: False
+password: None
+slug: 46411557-7cdb-45a6-a366-45769091eb80
+imei: L86V55IGTCH
+is_name: Test
+is_comments: Voice recording
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/recordings/recording_mcQt2x5.wav
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Error uploading file to S3: File does not exist: https:/s3zaisha-test.s3.amazonaws.com/video/20250317_161241_BUBJtMN.mp4
+Error uploading file to S3: File does not exist: https:/s3zaisha-test.s3.amazonaws.com/video/20250317_161241_BUBJtMN.mp4
+Error uploading file to S3: File does not exist: https:/s3zaisha-test.s3.amazonaws.com/video/20250317_161241_hMGRLgh.mp4
+Error uploading file to S3: File does not exist: https:/s3zaisha-test.s3.amazonaws.com/images/dogs-for-first-time-owners_ASpJQKn.jpg
+Error uploading file to S3: File does not exist: https:/s3zaisha-test.s3.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_9SueSI5.webp
+Error uploading file to S3: File does not exist: https:/s3zaisha-test.s3.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_9SueSI5.webp
+Error uploading file to S3: File does not exist: https:/s3zaisha-test.s3.amazonaws.com/images/tulipani-e1495120401620.jpg
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 20, 2025 - 11:49:58
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Update mode: True, IMEI: SC9U4A5277A
+_state: <django.db.models.base.ModelState object at 0x78cb1efc1660>
+created_on: 2025-03-20 06:20:50.339655+00:00
+video: 
+photo: images/Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006_bT1HXBR.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 6c52fc71-f237-4a0d-95a3-a037634d2531
+imei: SC9U4A5277A
+is_name: John
+is_comments: Images uploaded
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006_bT1HXBR.jpg
+_state: <django.db.models.base.ModelState object at 0x78cb1ed2bb20>
+created_on: 2025-03-20 06:20:50.339655+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006_bT1HXBR.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 6c52fc71-f237-4a0d-95a3-a037634d2531
+imei: SC9U4A5277A
+is_name: John
+is_comments: Images uploaded
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006_bT1HXBR.jpg
+Update mode: True, IMEI: SC9U4A5277A
+_state: <django.db.models.base.ModelState object at 0x78cb1c062680>
+created_on: 2025-03-20 06:21:36.225787+00:00
+video: 
+photo: images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_5DGFZKY.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 6587812b-531e-43d3-9e71-8f644229db02
+imei: SC9U4A5277A
+is_name: Leo
+is_comments: Laptop bags
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_5DGFZKY.webp
+_state: <django.db.models.base.ModelState object at 0x78cb1c061900>
+created_on: 2025-03-20 06:21:36.225787+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_5DGFZKY.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 6587812b-531e-43d3-9e71-8f644229db02
+imei: SC9U4A5277A
+is_name: Leo
+is_comments: Laptop bags
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_5DGFZKY.webp
+Update mode: True, IMEI: NI12OPXR56
+_state: <django.db.models.base.ModelState object at 0x78cb1ed79a80>
+created_on: 2025-03-20 06:24:04.123569+00:00
+video: video/20250317_161241_BUBJtMN.mp4
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: a145ba63-127e-427c-b39e-3291901abd44
+imei: NI12OPXR56
+is_name: Tets
+is_comments: Best one
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/20250317_161241_BUBJtMN.mp4
+_state: <django.db.models.base.ModelState object at 0x78cb17f1b9d0>
+created_on: 2025-03-20 06:24:04.123569+00:00
+video: https://s3zaisha-test.s3.amazonaws.com/video/20250317_161241_BUBJtMN.mp4
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: a145ba63-127e-427c-b39e-3291901abd44
+imei: NI12OPXR56
+is_name: Tets
+is_comments: Best one
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/video/20250317_161241_BUBJtMN.mp4
+Update mode: True, IMEI: R3RGGH7JLV
+_state: <django.db.models.base.ModelState object at 0x78cb1cc034c0>
+created_on: 2025-03-20 06:25:01.679165+00:00
+video: video/20250317_161241_hMGRLgh.mp4
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 44965f59-0b36-419a-b99f-12901945cd8a
+imei: R3RGGH7JLV
+is_name: Test one
+is_comments: Sample issue
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/20250317_161241_hMGRLgh.mp4
+_state: <django.db.models.base.ModelState object at 0x78cb1c062d10>
+created_on: 2025-03-20 06:25:01.679165+00:00
+video: https://s3zaisha-test.s3.amazonaws.com/video/20250317_161241_hMGRLgh.mp4
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 44965f59-0b36-419a-b99f-12901945cd8a
+imei: R3RGGH7JLV
+is_name: Test one
+is_comments: Sample issue
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/video/20250317_161241_hMGRLgh.mp4
+Update mode: True, IMEI: 0BQXNPICWL0D
+_state: <django.db.models.base.ModelState object at 0x78cb15ae52d0>
+created_on: 2025-03-20 06:25:46.124366+00:00
+video: 
+photo: images/dogs-for-first-time-owners_ASpJQKn.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: a381a228-2be8-4d46-90c8-f2f0c077292a
+imei: 0BQXNPICWL0D
+is_name: Test one
+is_comments: Images
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/dogs-for-first-time-owners_ASpJQKn.jpg
+_state: <django.db.models.base.ModelState object at 0x78cb15895fc0>
+created_on: 2025-03-20 06:25:46.124366+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/dogs-for-first-time-owners_ASpJQKn.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: a381a228-2be8-4d46-90c8-f2f0c077292a
+imei: 0BQXNPICWL0D
+is_name: Test one
+is_comments: Images
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/dogs-for-first-time-owners_ASpJQKn.jpg
+Update mode: True, IMEI: 3HMIJI1W1ZX
+_state: <django.db.models.base.ModelState object at 0x78cb15a75d80>
+created_on: 2025-03-20 06:26:27.842005+00:00
+video: 
+photo: images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_9SueSI5.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 549e3f24-6200-4b14-a825-03f769800c22
+imei: 3HMIJI1W1ZX
+is_name: Return
+is_comments: Images
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_9SueSI5.webp
+_state: <django.db.models.base.ModelState object at 0x78cb1c061ea0>
+created_on: 2025-03-20 06:26:27.842005+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_9SueSI5.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 549e3f24-6200-4b14-a825-03f769800c22
+imei: 3HMIJI1W1ZX
+is_name: Return
+is_comments: Images
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_9SueSI5.webp
+Update mode: True, IMEI: BT81I78D6AK
+_state: <django.db.models.base.ModelState object at 0x78cb1f9ef3a0>
+created_on: 2025-03-20 06:27:06.452959+00:00
+video: 
+photo: images/tulipani-e1495120401620.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: eb120212-7101-46ad-ba7f-04f2123b6011
+imei: BT81I78D6AK
+is_name: Jihn
+is_comments: Flower 🌼
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/tulipani-e1495120401620.jpg
+_state: <django.db.models.base.ModelState object at 0x78cb15896170>
+created_on: 2025-03-20 06:27:06.452959+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/tulipani-e1495120401620.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: eb120212-7101-46ad-ba7f-04f2123b6011
+imei: BT81I78D6AK
+is_name: Jihn
+is_comments: Flower 🌼
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/tulipani-e1495120401620.jpg
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Error uploading file to S3: File does not exist: https:/s3zaisha-test.s3.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_YzYegpl.webp
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 20, 2025 - 12:00:34
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Update mode: True, IMEI: PGH406IVCI
+_state: <django.db.models.base.ModelState object at 0x71b0255f0940>
+created_on: 2025-03-20 06:31:00.621418+00:00
+video: 
+photo: images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_YzYegpl.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: b9452dba-3848-4277-9399-6db42306cb62
+imei: PGH406IVCI
+is_name: Sam
+is_comments: Rest image soon
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_YzYegpl.webp
+_state: <django.db.models.base.ModelState object at 0x71b028253e20>
+created_on: 2025-03-20 06:31:00.621418+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_YzYegpl.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: b9452dba-3848-4277-9399-6db42306cb62
+imei: PGH406IVCI
+is_name: Sam
+is_comments: Rest image soon
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_YzYegpl.webp
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Error uploading file to S3: File does not exist: https:/s3zaisha-test.s3.amazonaws.com/images/newspress-collage-af7cyskoz-1706286404287.jpg
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 20, 2025 - 12:06:39
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Update mode: True, IMEI: PTHYEHEVA0F
+_state: <django.db.models.base.ModelState object at 0x72804be25a20>
+created_on: 2025-03-20 06:36:58.304991+00:00
+video: 
+photo: images/newspress-collage-af7cyskoz-1706286404287.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 0f3a1945-f3b9-4b0f-b2bd-0c69a7f1deed
+imei: PTHYEHEVA0F
+is_name: Agnes
+is_comments: Test one
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/newspress-collage-af7cyskoz-1706286404287.jpg
+_state: <django.db.models.base.ModelState object at 0x72804bd67490>
+created_on: 2025-03-20 06:36:58.304991+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/newspress-collage-af7cyskoz-1706286404287.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 0f3a1945-f3b9-4b0f-b2bd-0c69a7f1deed
+imei: PTHYEHEVA0F
+is_name: Agnes
+is_comments: Test one
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/newspress-collage-af7cyskoz-1706286404287.jpg
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Error uploading file to S3: File does not exist: https:/s3zaisha-test.s3.amazonaws.com/images/image3_480x480_a37pUC1.jpg
+Error uploading file to S3: File does not exist: https:/s3zaisha-test.s3.amazonaws.com/recordings/recording_IDehdk0.wav
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 20, 2025 - 12:08:55
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Update mode: True, IMEI: LIPR6UG79SI
+_state: <django.db.models.base.ModelState object at 0x764f1dd2c910>
+created_on: 2025-03-20 06:39:41.568499+00:00
+video: 
+photo: images/image3_480x480_a37pUC1.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 23dc20d8-c274-4285-a952-e172d5048f7f
+imei: LIPR6UG79SI
+is_name: John
+is_comments: Dongs dogs 🐕
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/image3_480x480_a37pUC1.jpg
+_state: <django.db.models.base.ModelState object at 0x764f17934700>
+created_on: 2025-03-20 06:39:41.568499+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/image3_480x480_a37pUC1.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 23dc20d8-c274-4285-a952-e172d5048f7f
+imei: LIPR6UG79SI
+is_name: John
+is_comments: Dongs dogs 🐕
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/image3_480x480_a37pUC1.jpg
+Update mode: True, IMEI: 741WKGI76R2
+_state: <django.db.models.base.ModelState object at 0x764f1e73d540>
+created_on: 2025-03-20 06:40:29.512319+00:00
+video: 
+photo: 
+recording: recordings/recording_IDehdk0.wav
+is_assigned: False
+password_protected: False
+password: None
+slug: ce2fa553-0e38-4690-aebb-46e03b7b018d
+imei: 741WKGI76R2
+is_name: Test
+is_comments: Vince reveidn
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/recordings/recording_IDehdk0.wav
+_state: <django.db.models.base.ModelState object at 0x764f1e78df60>
+created_on: 2025-03-20 06:40:29.512319+00:00
+video: 
+photo: 
+recording: https://s3zaisha-test.s3.amazonaws.com/recordings/recording_IDehdk0.wav
+is_assigned: False
+password_protected: False
+password: None
+slug: ce2fa553-0e38-4690-aebb-46e03b7b018d
+imei: 741WKGI76R2
+is_name: Test
+is_comments: Vince reveidn
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/recordings/recording_IDehdk0.wav
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Error uploading file to S3: File does not exist: https:/s3zaisha-test.s3.amazonaws.com/images/Screenshot_20250319_142804_Chrome.jpg
+Error uploading file to S3: File does not exist: https:/s3zaisha-test.s3.amazonaws.com/images/dogs-for-first-time-owners_fXEipFi.jpg
+Error uploading file to S3: File does not exist: https:/s3zaisha-test.s3.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_JYpBCWr.webp
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 20, 2025 - 12:16:05
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Update mode: True, IMEI: X3N8Y2LE5UC
+_state: <django.db.models.base.ModelState object at 0x77126b22d3f0>
+created_on: 2025-03-20 06:46:38.350138+00:00
+video: 
+photo: images/Screenshot_20250319_142804_Chrome.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 7c3f8117-649e-4b0f-a915-fee4a5a2127d
+imei: X3N8Y2LE5UC
+is_name: Tets
+is_comments: Data uploaded
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/Screenshot_20250319_142804_Chrome.jpg
+_state: <django.db.models.base.ModelState object at 0x771269024580>
+created_on: 2025-03-20 06:46:38.350138+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/Screenshot_20250319_142804_Chrome.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 7c3f8117-649e-4b0f-a915-fee4a5a2127d
+imei: X3N8Y2LE5UC
+is_name: Tets
+is_comments: Data uploaded
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/Screenshot_20250319_142804_Chrome.jpg
+Update mode: False, IMEI: NZ4UMIQHISC
+_state: <django.db.models.base.ModelState object at 0x771269080430>
+created_on: 2025-03-20 06:49:03.549496+00:00
+video: 
+photo: images/dogs-for-first-time-owners_fXEipFi.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 5915237d-84be-41e9-9b18-147f67d2d542
+imei: NZ4UMIQHISC
+is_name: Best fog
+is_comments: Nskdhf
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/dogs-for-first-time-owners_fXEipFi.jpg
+_state: <django.db.models.base.ModelState object at 0x7712632ce140>
+created_on: 2025-03-20 06:49:03.549496+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/dogs-for-first-time-owners_fXEipFi.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 5915237d-84be-41e9-9b18-147f67d2d542
+imei: NZ4UMIQHISC
+is_name: Best fog
+is_comments: Nskdhf
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/dogs-for-first-time-owners_fXEipFi.jpg
+Update mode: True, IMEI: V1OO4IC5709
+_state: <django.db.models.base.ModelState object at 0x7712690265f0>
+created_on: 2025-03-20 08:46:16.573808+00:00
+video: 
+photo: images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_JYpBCWr.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: dc66b583-75b5-454b-bc10-e915a99df340
+imei: V1OO4IC5709
+is_name: Gdbxnx
+is_comments: Xhhxjd
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_JYpBCWr.webp
+_state: <django.db.models.base.ModelState object at 0x771261ecfcd0>
+created_on: 2025-03-20 08:46:16.573808+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_JYpBCWr.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: dc66b583-75b5-454b-bc10-e915a99df340
+imei: V1OO4IC5709
+is_name: Gdbxnx
+is_comments: Xhhxjd
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_JYpBCWr.webp
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 20, 2025 - 14:21:00
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 20, 2025 - 14:22:10
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 20, 2025 - 14:22:17
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 20, 2025 - 14:24:33
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 20, 2025 - 14:25:41
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 20, 2025 - 14:26:05
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Error uploading file to S3: File does not exist: https:/s3zaisha-test.s3.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_1roQdur.webp
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 20, 2025 - 14:26:20
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Update mode: True, IMEI: JUZAY0T3AWO
+_state: <django.db.models.base.ModelState object at 0x735661f1e380>
+created_on: 2025-03-20 08:56:30.960751+00:00
+video: 
+photo: images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_1roQdur.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 8f00b6a5-5a0a-4967-b996-69a0bcdf55f6
+imei: JUZAY0T3AWO
+is_name: Tegdj
+is_comments: Dhjddj
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_1roQdur.webp
+_state: <django.db.models.base.ModelState object at 0x7356615fdbd0>
+created_on: 2025-03-20 08:56:30.960751+00:00
+video: 
+photo: https://s3zaisha-test.s3.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_1roQdur.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 8f00b6a5-5a0a-4967-b996-69a0bcdf55f6
+imei: JUZAY0T3AWO
+is_name: Tegdj
+is_comments: Dhjddj
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/https%3A/s3zaisha-test.s3.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_1roQdur.webp
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 20, 2025 - 14:29:07
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 20, 2025 - 14:35:01
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Update mode: True, IMEI: WIEJSCQST8I
+_state: <django.db.models.base.ModelState object at 0x74e853c18490>
+created_on: 2025-03-20 09:05:22.816461+00:00
+video: 
+photo: images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_KRO8z63.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 9f327099-25db-4868-825b-358795255a8a
+imei: WIEJSCQST8I
+is_name: Test
+is_comments: By memories ♥️
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_KRO8z63.webp
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 20, 2025 - 14:35:56
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Update mode: True, IMEI: 0R1Y9B4R5ISH
+_state: <django.db.models.base.ModelState object at 0x77c2a8528220>
+created_on: 2025-03-20 09:06:15.425009+00:00
+video: 
+photo: images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_hjFxBPS.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 9f98fd75-cbdb-436c-85fe-4983ddcfe471
+imei: 0R1Y9B4R5ISH
+is_name: Tsg
+is_comments: Wriets
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_hjFxBPS.webp
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 20, 2025 - 14:39:19
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Update mode: True, IMEI: 4G3TWJB2HHC
+_state: <django.db.models.base.ModelState object at 0x7b45bd585c90>
+created_on: 2025-03-20 09:09:57.954203+00:00
+video: 
+photo: images/image3_480x480_MfRBdDO.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 95697ec1-84cd-4761-802f-da18a88192d7
+imei: 4G3TWJB2HHC
+is_name: Tedt
+is_comments: Wirds
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/image3_480x480_MfRBdDO.jpg
+Update mode: True, IMEI: DB4UEKRSARI
+_state: <django.db.models.base.ModelState object at 0x7b45bd585660>
+created_on: 2025-03-20 09:10:52.050982+00:00
+video: video/20250317_161241_O1YEe6D.mp4
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 3b20fd25-3708-4fbe-b860-5f914b662679
+imei: DB4UEKRSARI
+is_name: Tedt
+is_comments: Video
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/20250317_161241_O1YEe6D.mp4
+Update mode: True, IMEI: DB4UEKRSARI
+_state: <django.db.models.base.ModelState object at 0x7b45b680baf0>
+created_on: 2025-03-20 09:11:51.840806+00:00
+video: 
+photo: images/image3_480x480_H6nEPWi.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: a3d2dad1-f782-4f53-9f84-9b1df8210457
+imei: DB4UEKRSARI
+is_name: Test imagd
+is_comments: John
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/image3_480x480_H6nEPWi.jpg
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 20, 2025 - 14:42:40
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 20, 2025 - 14:42:55
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+_state: <django.db.models.base.ModelState object at 0x7d8aaab553c0>
+created_on: 2025-03-20 09:43:47.710906+00:00
+video: 
+photo: images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_jzFaYdw.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 21445716-2350-4749-a674-6b47eaa20808
+imei: EJNIFNRTY4O
+is_name: John
+is_comments: Rest
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_jzFaYdw.webp
+_state: <django.db.models.base.ModelState object at 0x7d8aaab54f10>
+created_on: 2025-03-20 09:44:05.996585+00:00
+video: 
+photo: images/image3_480x480_JM0rSzi.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 8222a904-9f53-4a02-941e-8d3c5a9ebf0f
+imei: EJNIFNRTY4O
+is_name: Xhmdkd
+is_comments: Djkd
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/image3_480x480_JM0rSzi.jpg
+_state: <django.db.models.base.ModelState object at 0x7d8aa2915960>
+created_on: 2025-03-20 09:44:43.076265+00:00
+video: 
+photo: images/image3_480x480_lULS18v.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: eda717d1-7d27-4113-a584-1e1c5bddf55d
+imei: YWT5GWO366J
+is_name: John
+is_comments: Test one
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/image3_480x480_lULS18v.jpg
+_state: <django.db.models.base.ModelState object at 0x7d8aa2900970>
+created_on: 2025-03-20 09:45:54.271187+00:00
+video: video/20250317_161241_RRdgnO3.mp4
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 50f83f1a-8aae-477b-81e2-f69fb2c99728
+imei: JL4VUU57XOG
+is_name: Tesgh
+is_comments: Video
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/20250317_161241_RRdgnO3.mp4
+_state: <django.db.models.base.ModelState object at 0x7d8aad84af20>
+created_on: 2025-03-20 09:49:08.852637+00:00
+video: 
+photo: images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_vrWRnz1.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: b8c9889d-dce8-47c8-b64e-2466a491f8ea
+imei: 6CUGADBU0MQ
+is_name: Test
+is_comments: One woemds
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_vrWRnz1.webp
+_state: <django.db.models.base.ModelState object at 0x7d8aad848280>
+created_on: 2025-03-20 09:54:30.097772+00:00
+video: video/20250317_161241_J92tWu5.mp4
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 7659daa1-199a-431b-a63e-a070302213b9
+imei: F7MGO589E7F
+is_name: Tets
+is_comments: One
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/20250317_161241_J92tWu5.mp4
+_state: <django.db.models.base.ModelState object at 0x7d8aa1f8baf0>
+created_on: 2025-03-20 10:12:17.330955+00:00
+video: 
+photo: images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_rvUp7cG.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 54897cb2-e8d0-497e-8bfc-7962f89a98d2
+imei: W05BW4D98V
+is_name: 4yfx
+is_comments: Gjc
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_rvUp7cG.webp
+_state: <django.db.models.base.ModelState object at 0x7d8aa894ad40>
+created_on: 2025-03-20 10:17:50.811014+00:00
+video: video/20250317_161241_v0n0AfS.mp4
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: d2862941-df18-4278-9263-9ba02fa27c6e
+imei: 1RD55JMS0BI
+is_name: Sara
+is_comments: Test
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/20250317_161241_v0n0AfS.mp4
+_state: <django.db.models.base.ModelState object at 0x7d8aa15fb070>
+created_on: 2025-03-20 10:18:58.368262+00:00
+video: 
+photo: 
+recording: recordings/recording_JPmKsqm.wav
+is_assigned: False
+password_protected: False
+password: None
+slug: 5e898880-8250-4c93-a351-5fceac70d672
+imei: 1RD55JMS0BI
+is_name: Test voice
+is_comments: Test
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/recordings/recording_JPmKsqm.wav
+_state: <django.db.models.base.ModelState object at 0x7d8aa894b0d0>
+created_on: 2025-03-20 10:19:32.892851+00:00
+video: video/20250317_161241_rfmUSOs.mp4
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: bdfc960b-0bf3-4e50-80b0-4a349000f225
+imei: 1RD55JMS0BI
+is_name: Test2
+is_comments: Test
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/20250317_161241_rfmUSOs.mp4
+_state: <django.db.models.base.ModelState object at 0x7d8aa83b1030>
+created_on: 2025-03-20 10:20:24.486936+00:00
+video: video/20250317_161241_vA8aZFM.mp4
+photo: 
+recording: recordings/recording_VOZTZZJ.wav
+is_assigned: False
+password_protected: False
+password: None
+slug: 219ad032-861e-413c-a096-30cf9ffb0095
+imei: 1RD55JMS0BI
+is_name: Tesg
+is_comments: Testyt
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/20250317_161241_vA8aZFM.mp4
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/recordings/recording_VOZTZZJ.wav
+_state: <django.db.models.base.ModelState object at 0x7d8aa83b22c0>
+created_on: 2025-03-20 10:31:32.743556+00:00
+video: 
+photo: images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_xOnoztV.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 3ef6630a-98ca-4ba1-b402-ae49b1955086
+imei: 1RD55JMS0BI
+is_name: Tedt
+is_comments: One
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_xOnoztV.webp
+_state: <django.db.models.base.ModelState object at 0x7d8aa89db3d0>
+created_on: 2025-03-20 10:33:20.011394+00:00
+video: 
+photo: images/详情视频_q8gyRcU.mp4.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 5a3ca8bb-2627-4256-8a59-a9a91f972ec3
+imei: 1RD55JMS0BI
+is_name: Tedt
+is_comments: One
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/%E8%AF%A6%E6%83%85%E8%A7%86%E9%A2%91_q8gyRcU.mp4.webp
+_state: <django.db.models.base.ModelState object at 0x7d8aa83b1540>
+created_on: 2025-03-20 10:33:40.353394+00:00
+video: 
+photo: images/29992_1698653_mountin_updates_GDffUDv.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 626cd61d-2838-403c-be84-ef7597cea2c6
+imei: 1RD55JMS0BI
+is_name: Tedt
+is_comments: One
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/29992_1698653_mountin_updates_GDffUDv.jpg
+_state: <django.db.models.base.ModelState object at 0x7d8aa894abc0>
+created_on: 2025-03-20 10:33:56.222874+00:00
+video: video/20250317_161241_TnsUo2H.mp4
+photo: images/29992_1698653_mountin_updates_3P9dyT9.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 17d30d9a-3d2b-4eef-a9fc-cb0196959d92
+imei: 1RD55JMS0BI
+is_name: Tedt
+is_comments: One
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/20250317_161241_TnsUo2H.mp4
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/29992_1698653_mountin_updates_3P9dyT9.jpg
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 20, 2025 - 16:14:12
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+_state: <django.db.models.base.ModelState object at 0x772155e294e0>
+created_on: 2025-03-20 10:44:36.636144+00:00
+video: 
+photo: images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_FbflHIs.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: bbc1bd9f-ec0e-4f6b-9ead-926df13c274a
+imei: T1I0RRNMKF
+is_name: Tes
+is_comments: Ons
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_FbflHIs.webp
+_state: <django.db.models.base.ModelState object at 0x7721545ed9f0>
+created_on: 2025-03-20 10:44:48.633512+00:00
+video: 
+photo: images/image3_480x480_10LVvGr.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: eca01865-1c6c-4638-bd0b-482219c34270
+imei: T1I0RRNMKF
+is_name: Tes
+is_comments: Ons
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/image3_480x480_10LVvGr.jpg
+_state: <django.db.models.base.ModelState object at 0x7721544bbb50>
+created_on: 2025-03-20 10:45:03.084072+00:00
+video: video/20250317_161241_7z19hBL.mp4
+photo: images/image3_480x480_Kgjgsg4.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 939c7a08-7074-4867-9d18-88dcf3726cbe
+imei: T1I0RRNMKF
+is_name: Tes
+is_comments: Ons
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/20250317_161241_7z19hBL.mp4
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/image3_480x480_Kgjgsg4.jpg
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 20, 2025 - 16:18:47
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+_state: <django.db.models.base.ModelState object at 0x7a886138e6b0>
+created_on: 2025-03-20 10:49:12.701766+00:00
+video: 
+photo: images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_XxhXOFF.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: b6ca3699-05f8-45b3-a55f-10e03d89fa25
+imei: 1E20BLG7I2R
+is_name: Test
+is_comments: Memory
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_XxhXOFF.webp
+_state: <django.db.models.base.ModelState object at 0x7a886136ada0>
+created_on: 2025-03-20 10:50:08.341723+00:00
+video: 
+photo: images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_hd14hHz.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 209fbb8d-bf9f-44e5-a0c1-6f45e56b1ced
+imei: 2RW2FPU1K1Z
+is_name: 5egsjs
+is_comments: Rbrnmr
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_hd14hHz.webp
+_state: <django.db.models.base.ModelState object at 0x7a8864019ed0>
+created_on: 2025-03-20 10:50:28.425612+00:00
+video: video/20250317_161241_ff4btu4.mp4
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: f837d745-fd92-405e-a269-877338b6fc05
+imei: 2RW2FPU1K1Z
+is_name: 5egsjs
+is_comments: Rbrnmr
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/20250317_161241_ff4btu4.mp4
+_state: <django.db.models.base.ModelState object at 0x7a886138e350>
+created_on: 2025-03-20 10:51:10.560174+00:00
+video: 
+photo: images/Screenshot_20250319_142804_Chrome_2rjuRIq.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 46c9f306-56a4-429d-accb-fc44e9127a1e
+imei: 2RW2FPU1K1Z
+is_name: Tsbsn
+is_comments: Dgdhmf
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/Screenshot_20250319_142804_Chrome_2rjuRIq.jpg
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 20, 2025 - 16:22:39
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+_state: <django.db.models.base.ModelState object at 0x766e137d3d00>
+created_on: 2025-03-20 10:52:57.016135+00:00
+video: 
+photo: images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_3j6qdHd.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 55b75e63-b616-4cbc-b690-4cd9b60ec56e
+imei: FS9EW71MKJD
+is_name: Tes
+is_comments: Imags
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_3j6qdHd.webp
+_state: <django.db.models.base.ModelState object at 0x766e11d99540>
+created_on: 2025-03-20 10:53:14.681369+00:00
+video: video/20250317_161241_l8xEbAE.mp4
+photo: images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_8gadja0.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: f3be8547-cf7c-400b-9f37-c0fa3cc03be9
+imei: FS9EW71MKJD
+is_name: Tes
+is_comments: Imags
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/20250317_161241_l8xEbAE.mp4
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_8gadja0.webp
+_state: <django.db.models.base.ModelState object at 0x766e11d99c90>
+created_on: 2025-03-20 10:54:50.136650+00:00
+video: 
+photo: images/electric-plane-ht-ml-240110_1704902584341_hpMain_16x9_xR1Xv2P.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 4fab146b-4603-4a45-be02-6de8f778118f
+imei: 5VQGJJRECMI
+is_name: Test
+is_comments: Images
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/electric-plane-ht-ml-240110_1704902584341_hpMain_16x9_xR1Xv2P.jpg
+_state: <django.db.models.base.ModelState object at 0x766e0be726b0>
+created_on: 2025-03-20 10:55:07.178673+00:00
+video: video/20250317_161241_N2yJuBY.mp4
+photo: images/electric-plane-ht-ml-240110_1704902584341_hpMain_16x9_2B0eLaw.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 52e48c57-db40-495f-ae09-3662a80f1f79
+imei: 5VQGJJRECMI
+is_name: Test
+is_comments: Images
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/20250317_161241_N2yJuBY.mp4
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/electric-plane-ht-ml-240110_1704902584341_hpMain_16x9_2B0eLaw.jpg
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 20, 2025 - 16:30:41
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 20, 2025 - 16:30:59
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+_state: <django.db.models.base.ModelState object at 0x73c7c9a87c40>
+created_on: 2025-03-20 11:01:21.852747+00:00
+video: 
+photo: images/electric-plane-ht-ml-240110_1704902584341_hpMain_16x9_DTocGkB.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 07633f1c-45e3-4aa0-83b4-4fe5808e1979
+imei: HULB7ZR7KJ9
+is_name: Test
+is_comments: One
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/electric-plane-ht-ml-240110_1704902584341_hpMain_16x9_DTocGkB.jpg
+_state: <django.db.models.base.ModelState object at 0x73c7c352d870>
+created_on: 2025-03-20 11:01:42.512016+00:00
+video: video/20250317_161241_Srm7tbx.mp4
+photo: images/electric-plane-ht-ml-240110_1704902584341_hpMain_16x9_T9Pw88a.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 2474e505-aff8-4a04-9928-0804a7da152a
+imei: HULB7ZR7KJ9
+is_name: Test
+is_comments: One video
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/20250317_161241_Srm7tbx.mp4
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/electric-plane-ht-ml-240110_1704902584341_hpMain_16x9_T9Pw88a.jpg
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 20, 2025 - 16:33:32
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+_state: <django.db.models.base.ModelState object at 0x7c6953b0f370>
+created_on: 2025-03-20 11:03:54.782686+00:00
+video: 
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 55138265-35c5-4e49-9ef0-971b233c7421
+imei: HULB7ZR7KJ9
+is_name: Im
+is_comments: Agsnsvhz
+_state: <django.db.models.base.ModelState object at 0x7c6956845e70>
+created_on: 2025-03-20 11:04:16.028369+00:00
+video: 
+photo: 
+recording: recordings/recording_4LnOBY8.wav
+is_assigned: False
+password_protected: False
+password: None
+slug: 56d6f06f-5646-4923-8938-75348b467f14
+imei: HULB7ZR7KJ9
+is_name: Agandn
+is_comments: Tsgs
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/recordings/recording_4LnOBY8.wav
+_state: <django.db.models.base.ModelState object at 0x7c6953b37400>
+created_on: 2025-03-20 11:04:46.966688+00:00
+video: video/20250317_161241_2jel4uJ.mp4
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 0ff16df9-ecc6-40da-9f4a-e07e377570d2
+imei: 57B13V7M39E
+is_name: Tedt
+is_comments: Onfd
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/20250317_161241_2jel4uJ.mp4
+_state: <django.db.models.base.ModelState object at 0x7c695185fa00>
+created_on: 2025-03-20 11:05:04.589988+00:00
+video: 
+photo: images/__Fw7ZE4n.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: cc4ed977-845e-4df9-b6d8-d7fb3e49e74f
+imei: 57B13V7M39E
+is_name: Tedt
+is_comments: Onfd
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/__Fw7ZE4n.jpg
+_state: <django.db.models.base.ModelState object at 0x7c694b9171f0>
+created_on: 2025-03-20 11:06:16.321324+00:00
+video: 
+photo: images/113065399.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: b1aba2f5-0ab9-4f00-a6fb-0e4255a447de
+imei: E7ATPDWL84W
+is_name: Image1
+is_comments: Test1
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/113065399.jpg
+_state: <django.db.models.base.ModelState object at 0x7c694b967310>
+created_on: 2025-03-20 11:07:04.795554+00:00
+video: video/20250317_161241_b0Xnxpy.mp4
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 043bf63a-c901-4a0c-b267-389a6d133362
+imei: E7ATPDWL84W
+is_name: Image2
+is_comments: Test2
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/20250317_161241_b0Xnxpy.mp4
+_state: <django.db.models.base.ModelState object at 0x7c694b967b80>
+created_on: 2025-03-20 11:07:42.531470+00:00
+video: video/20250317_161241_3czFKEi.mp4
+photo: 
+recording: recordings/recording_Nd8DwdF.wav
+is_assigned: False
+password_protected: False
+password: None
+slug: 31ba88eb-d978-49ad-87fc-0532e732c406
+imei: E7ATPDWL84W
+is_name: Test2
+is_comments: Test 3
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/20250317_161241_3czFKEi.mp4
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/recordings/recording_Nd8DwdF.wav
+_state: <django.db.models.base.ModelState object at 0x7c694b964280>
+created_on: 2025-03-20 11:08:50.666458+00:00
+video: video/20250317_161241_PGo4UhW.mp4
+photo: images/newspress-collage-af7cyskoz-1706286404287_5T15aZf.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 8a910b29-13c0-458d-bb76-6fc2d36e19c8
+imei: E7ATPDWL84W
+is_name: Image2
+is_comments: Test2
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/20250317_161241_PGo4UhW.mp4
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/newspress-collage-af7cyskoz-1706286404287_5T15aZf.jpg
+_state: <django.db.models.base.ModelState object at 0x7c694b98bf10>
+created_on: 2025-03-20 11:11:50.610402+00:00
+video: 
+photo: images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_uq4GvyF.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 7f807590-e789-4f54-81f9-4394faa128b9
+imei: E7ATPDWL84W
+is_name: Tedh
+is_comments: Fjvd
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_uq4GvyF.webp
+_state: <django.db.models.base.ModelState object at 0x7c694b9cab00>
+created_on: 2025-03-20 11:12:11.476168+00:00
+video: 
+photo: images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_MA3BvSY.webp
+recording: recordings/recording_TOQGMn9.wav
+is_assigned: False
+password_protected: False
+password: None
+slug: 0c61bdfb-1d80-4274-be5d-2160f9f49c53
+imei: E7ATPDWL84W
+is_name: Fhcvg
+is_comments: Dnc
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_MA3BvSY.webp
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/recordings/recording_TOQGMn9.wav
+_state: <django.db.models.base.ModelState object at 0x7c694b916ad0>
+created_on: 2025-03-20 11:13:05.305227+00:00
+video: 
+photo: images/__MJZE99b.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 0e37d674-44a7-497a-9e3d-637ff691069f
+imei: E7ATPDWL84W
+is_name: Gehsnx
+is_comments: Xbjxjx
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/__MJZE99b.jpg
+_state: <django.db.models.base.ModelState object at 0x7c694b917550>
+created_on: 2025-03-20 11:13:21.093391+00:00
+video: video/20250317_161241_IK9v9wn.mp4
+photo: images/__jn02ml4.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: bbb7b343-5f72-49dd-a057-a8e5e3ab1bfb
+imei: E7ATPDWL84W
+is_name: Gehsnx
+is_comments: Xbjxjx
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/20250317_161241_IK9v9wn.mp4
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/__jn02ml4.jpg
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 20, 2025 - 16:51:32
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+_state: <django.db.models.base.ModelState object at 0x7813bba246a0>
+created_on: 2025-03-20 11:22:30.943383+00:00
+video: 
+photo: images/electric-plane-ht-ml-240110_1704902584341_hpMain_16x9_OXWTlo1.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: eeb5c84b-142a-48ca-895c-4f7fe7c68431
+imei: R760AIBDYA
+is_name: Test
+is_comments: Images
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/electric-plane-ht-ml-240110_1704902584341_hpMain_16x9_OXWTlo1.jpg
+_state: <django.db.models.base.ModelState object at 0x7813ba1e1cc0>
+created_on: 2025-03-20 11:22:57.628554+00:00
+video: video/20250317_161241_kl9rlBY.mp4
+photo: images/electric-plane-ht-ml-240110_1704902584341_hpMain_16x9_P0uHRXp.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 17993716-9856-4aab-846a-00e1dfbf6fc9
+imei: R760AIBDYA
+is_name: Test
+is_comments: 📹
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/20250317_161241_kl9rlBY.mp4
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/electric-plane-ht-ml-240110_1704902584341_hpMain_16x9_P0uHRXp.jpg
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 20, 2025 - 16:55:21
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+_state: <django.db.models.base.ModelState object at 0x7e9a79f7d180>
+created_on: 2025-03-20 11:25:54.897450+00:00
+video: 
+photo: images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_h4iXv2m.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 95f0e934-c2c6-4a78-905e-20c9cdc6477d
+imei: I08NMDNF76
+is_name: Text
+is_comments: Ivsgg
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_h4iXv2m.webp
+_state: <django.db.models.base.ModelState object at 0x7e9a7343db70>
+created_on: 2025-03-20 11:26:21.181470+00:00
+video: video/20250317_161241_EdikdzA.mp4
+photo: images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_me8gy8Y.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 9073ef1f-d48b-4170-a89d-16fc36efa9e2
+imei: I08NMDNF76
+is_name: Text
+is_comments: Ivsgg
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/20250317_161241_EdikdzA.mp4
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_me8gy8Y.webp
+_state: <django.db.models.base.ModelState object at 0x7e9a7343e020>
+created_on: 2025-03-20 12:04:04.049914+00:00
+video: 
+photo: images/1000083349.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: b4d7d823-4e29-431a-947e-4538ca8315e8
+imei: Hdjdnd7394dbmd
+is_name: Test
+is_comments: One
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/1000083349.jpg
+_state: <django.db.models.base.ModelState object at 0x7e9a717a0220>
+created_on: 2025-03-20 12:06:57.370772+00:00
+video: 
+photo: images/1000083349_hic4SXT.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: b671dbed-95e4-4835-a00b-39d575a4ec0a
+imei: Hdjdhnd7394dbmd
+is_name: Tege
+is_comments: Ddbdndk
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/1000083349_hic4SXT.jpg
+_state: <django.db.models.base.ModelState object at 0x7e9a717a3d00>
+created_on: 2025-03-20 12:07:14.788938+00:00
+video: video/1000083270.mp4
+photo: images/1000083349_zJwNjzp.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 88f639a9-4604-4918-9d44-fae01cf8d59b
+imei: Hdjdhnd7394dbmd
+is_name: Tegehshd
+is_comments: Ddbdndk
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/1000083270.mp4
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/1000083349_zJwNjzp.jpg
+_state: <django.db.models.base.ModelState object at 0x7e9a7343ebc0>
+created_on: 2025-03-20 13:32:29.881241+00:00
+video: 
+photo: images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_WOFFSSq.webp
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 89d002f1-23f6-49d4-9912-6a40f119152f
+imei: 0UBMRC2MLVQG
+is_name: Test
+is_comments: Words
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/15-6-Inch-J3455-IPS-8GB-RAM-128GB-SSD-Touch-Screen-Laptop-Netbook-Computer-Lapto_WOFFSSq.webp
+_state: <django.db.models.base.ModelState object at 0x7e9a795a4b20>
+created_on: 2025-03-20 13:32:50.461854+00:00
+video: video/20250317_161241_54cEXs7.mp4
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 41a965d8-5090-4ca8-bf50-5d05277a8590
+imei: 0UBMRC2MLVQG
+is_name: Test
+is_comments: Words submitss
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/20250317_161241_54cEXs7.mp4
+_state: <django.db.models.base.ModelState object at 0x7e9a717fe3b0>
+created_on: 2025-03-20 13:33:38.904644+00:00
+video: 
+photo: 
+recording: recordings/recording_Klin4xA.wav
+is_assigned: False
+password_protected: False
+password: None
+slug: c32c2833-5af8-4ebd-bf67-039740592510
+imei: 0UBMRC2MLVQG
+is_name: Test ons
+is_comments: Voice recording
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/recordings/recording_Klin4xA.wav
+_state: <django.db.models.base.ModelState object at 0x7e9a7343efb0>
+created_on: 2025-03-20 13:33:53.591744+00:00
+video: 
+photo: images/__ve8p2Nf.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: a2802422-dcf5-4c29-ba55-a3ba7b1a6963
+imei: 0UBMRC2MLVQG
+is_name: Images
+is_comments: Successful
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/__ve8p2Nf.jpg
+_state: <django.db.models.base.ModelState object at 0x7e9a7178b520>
+created_on: 2025-03-20 13:45:40.872507+00:00
+video: 
+photo: images/Screenshot_2023-10-06_175650.png
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 849b4e91-5b28-4c02-802b-8c7df931dc03
+imei: sjdfhasjlfhnal
+is_name: Test
+is_comments: TEst
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/Screenshot_2023-10-06_175650.png
+_state: <django.db.models.base.ModelState object at 0x7e9a71788ac0>
+created_on: 2025-03-20 13:46:19.983362+00:00
+video: 
+photo: 
+recording: recordings/recording_rPmNFN4.wav
+is_assigned: False
+password_protected: False
+password: None
+slug: f26ef727-448c-4d2c-b0e0-3fbb27033c83
+imei: sjdfhasjlfhnal
+is_name: test
+is_comments: test
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/recordings/recording_rPmNFN4.wav
+_state: <django.db.models.base.ModelState object at 0x7e9a717cc1f0>
+created_on: 2025-03-20 14:04:11.999301+00:00
+video: 
+photo: images/1000025572.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 19e8570f-152d-4504-a44f-a9910fc68481
+imei: KLM1PAZXBIA
+is_name: John
+is_comments: Test images
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/1000025572.jpg
+_state: <django.db.models.base.ModelState object at 0x7e9a717ff160>
+created_on: 2025-03-20 14:04:43.909971+00:00
+video: video/1000027504.mp4
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 0c63d2a1-61cb-4bda-b5a9-3650509edd40
+imei: KLM1PAZXBIA
+is_name: Sam
+is_comments: Test videos
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/1000027504.mp4
+_state: <django.db.models.base.ModelState object at 0x7e9a717cffa0>
+created_on: 2025-03-20 14:05:20.572896+00:00
+video: 
+photo: 
+recording: recordings/recording_NEVMVrj.wav
+is_assigned: False
+password_protected: False
+password: None
+slug: 44733719-a3cf-4fd8-ab54-6bb1d254c334
+imei: KLM1PAZXBIA
+is_name: Jose
+is_comments: Test worda
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/recordings/recording_NEVMVrj.wav
+_state: <django.db.models.base.ModelState object at 0x7e9a717cd960>
+created_on: 2025-03-20 14:06:07.312671+00:00
+video: 
+photo: images/1000025481.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: c120fe8d-3a4e-4b16-bffb-c56023985911
+imei: KLM1PAZXBIA
+is_name: Best
+is_comments: My favourite one ❤️
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/1000025481.jpg
+_state: <django.db.models.base.ModelState object at 0x7e9a71707f10>
+created_on: 2025-03-20 14:08:48.254040+00:00
+video: 
+photo: images/1000045353.jpg
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: f9156395-f60e-4270-bac2-463a8cbc75bf
+imei: AJ16AGU4J19
+is_name: Karthik
+is_comments: My fav one
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/1000045353.jpg
+_state: <django.db.models.base.ModelState object at 0x7e9a71707dc0>
+created_on: 2025-03-20 14:09:30.150501+00:00
+video: video/1000041670.mp4
+photo: 
+recording: 
+is_assigned: False
+password_protected: False
+password: None
+slug: 7421b943-6e6e-45d1-95e8-13ba72e1c467
+imei: AJ16AGU4J19
+is_name: Karthik
+is_comments: Frstiva mode sta6
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/1000041670.mp4
+_state: <django.db.models.base.ModelState object at 0x7e9a7035e140>
+created_on: 2025-03-20 14:09:56.935512+00:00
+video: 
+photo: 
+recording: recordings/recording_Vma45rv.wav
+Database connected successfully!
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Error: That port is already in use.
+Database connected successfully!
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Error: That port is already in use.
+Database connected successfully!
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+April 12, 2025 - 16:44:39
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+_state: <django.db.models.base.ModelState object at 0x7432f288e4d0>
+created_on: 2025-04-01 07:21:28.177410+00:00
+video: 
+photo: images/1000501617.jpg
+recording: 
+is_assigned: False
+password: None
+password_protected: False
+slug: 2d260166-951a-4d63-a04e-aaf36c5495cc
+imei: NPKVA5D19D
+is_name: Sahil
+is_comments: Haha
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/1000501617.jpg
+_state: <django.db.models.base.ModelState object at 0x7432efbebee0>
+created_on: 2025-04-12 11:21:26.683307+00:00
+video: 
+photo: images/1000071364.jpg
+recording: 
+is_assigned: False
+password: None
+password_protected: False
+slug: 4ffde212-a016-4158-aa12-e56bbbdbbd84
+imei: IFHDBFHDNDA
+is_name: John
+is_comments: My best watch
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/1000071364.jpg
+_state: <django.db.models.base.ModelState object at 0x7432e703ef50>
+created_on: 2025-04-12 11:21:26.683307+00:00
+video: 
+photo: images/1000071364.jpg
+recording: 
+is_assigned: False
+password: Agnesj@1
+password_protected: False
+slug: 4ffde212-a016-4158-aa12-e56bbbdbbd84
+imei: IFHDBFHDNDA
+is_name: John
+is_comments: My best watch
+created_at: 2025-04-12 11:22:07.241952+00:00
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/1000071364.jpg
+_state: <django.db.models.base.ModelState object at 0x7432e703d1e0>
+created_on: 2025-04-12 11:25:57.374278+00:00
+video: 
+photo: images/详情视频_LBgVXOD.mp4.webp
+recording: 
+is_assigned: False
+password: None
+password_protected: False
+slug: dfc4734f-abdb-43a5-9e23-fc80327760fc
+imei: 0GVWBMEUM5EC
+is_name: Jack
+is_comments: My fav laptops 💻
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/%E8%AF%A6%E6%83%85%E8%A7%86%E9%A2%91_LBgVXOD.mp4.webp
+_state: <django.db.models.base.ModelState object at 0x7432e6506080>
+created_on: 2025-04-12 11:25:57.374278+00:00
+video: 
+photo: images/详情视频_LBgVXOD.mp4.webp
+recording: 
+is_assigned: False
+password: 123456
+password_protected: False
+slug: dfc4734f-abdb-43a5-9e23-fc80327760fc
+imei: 0GVWBMEUM5EC
+is_name: Jack
+is_comments: My fav laptops 💻
+created_at: 2025-04-12 11:26:17.758699+00:00
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/%E8%AF%A6%E6%83%85%E8%A7%86%E9%A2%91_LBgVXOD.mp4.webp
+_state: <django.db.models.base.ModelState object at 0x7432e6507cd0>
+created_on: 2025-04-12 11:25:57.374278+00:00
+video: video/20250317_161241_MKfHMYP.mp4
+photo: 
+recording: 
+is_assigned: False
+password: 123456
+password_protected: False
+slug: dfc4734f-abdb-43a5-9e23-fc80327760fc
+imei: 0GVWBMEUM5EC
+is_name: Jose
+is_comments: Test memories
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/20250317_161241_MKfHMYP.mp4
+_state: <django.db.models.base.ModelState object at 0x7432e703d5a0>
+created_on: 2025-04-12 11:25:57.374278+00:00
+video: video/20250317_161241_MKfHMYP.mp4
+photo: 
+recording: 
+is_assigned: False
+password: 5656
+password_protected: False
+slug: dfc4734f-abdb-43a5-9e23-fc80327760fc
+imei: 0GVWBMEUM5EC
+is_name: Jose
+is_comments: Test memories
+created_at: 2025-04-12 11:27:29.553517+00:00
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/20250317_161241_MKfHMYP.mp4
+_state: <django.db.models.base.ModelState object at 0x7432e6518850>
+created_on: 2025-04-12 11:25:57.374278+00:00
+video: 
+photo: 
+recording: recordings/recording_FapRd3v.wav
+is_assigned: False
+password: 5656
+password_protected: False
+slug: dfc4734f-abdb-43a5-9e23-fc80327760fc
+imei: 0GVWBMEUM5EC
+is_name: John
+is_comments: Test
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/recordings/recording_FapRd3v.wav
+_state: <django.db.models.base.ModelState object at 0x7432e651a380>
+created_on: 2025-04-12 11:25:57.374278+00:00
+video: 
+photo: 
+recording: recordings/recording_FapRd3v.wav
+is_assigned: False
+password: 6767
+password_protected: False
+slug: dfc4734f-abdb-43a5-9e23-fc80327760fc
+imei: 0GVWBMEUM5EC
+is_name: John
+is_comments: Test
+created_at: 2025-04-12 11:28:29.557168+00:00
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/recordings/recording_FapRd3v.wav
+_state: <django.db.models.base.ModelState object at 0x7432e6519b70>
+created_on: 2025-04-01 07:21:28.177410+00:00
+video: video/1000499466.mp4
+photo: 
+recording: 
+is_assigned: False
+password: None
+password_protected: False
+slug: 2d260166-951a-4d63-a04e-aaf36c5495cc
+imei: NPKVA5D19D
+is_name: Sahil
+is_comments: I love you
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/1000499466.mp4
+_state: <django.db.models.base.ModelState object at 0x7432e6519ab0>
+created_on: 2025-04-01 07:21:28.177410+00:00
+video: video/1000499466.mp4
+photo: 
+recording: 
+is_assigned: False
+password: sahil
+password_protected: False
+slug: 2d260166-951a-4d63-a04e-aaf36c5495cc
+imei: NPKVA5D19D
+is_name: Sahil
+is_comments: I love you
+created_at: 2025-04-12 11:31:14.926761+00:00
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/1000499466.mp4
+_state: <django.db.models.base.ModelState object at 0x7432e6505240>
+created_on: 2025-04-01 07:21:28.177410+00:00
+video: video/1000499466.mp4
+photo: 
+recording: 
+is_assigned: False
+password: sahil
+password_protected: False
+slug: 2d260166-951a-4d63-a04e-aaf36c5495cc
+imei: NPKVA5D19D
+is_name: Sahil
+is_comments: I love you
+created_at: 2025-04-12 11:31:42.173833+00:00
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/1000499466.mp4
+_state: <django.db.models.base.ModelState object at 0x7432e65050c0>
+created_on: 2025-04-01 07:21:28.177410+00:00
+video: 
+photo: 
+recording: recordings/recording_sN3ZXVz.wav
+is_assigned: False
+password: sahil
+password_protected: False
+slug: 2d260166-951a-4d63-a04e-aaf36c5495cc
+imei: NPKVA5D19D
+is_name: Sahil
+is_comments: Hsjsjs
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/recordings/recording_sN3ZXVz.wav
+_state: <django.db.models.base.ModelState object at 0x7432f288cee0>
+created_on: 2025-04-01 07:21:28.177410+00:00
+video: 
+photo: images/image_n9WLfKl.jpg
+recording: 
+is_assigned: False
+password: sahil
+password_protected: False
+slug: 2d260166-951a-4d63-a04e-aaf36c5495cc
+imei: NPKVA5D19D
+is_name: Ashwin
+is_comments: Nothing
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/image_n9WLfKl.jpg
+_state: <django.db.models.base.ModelState object at 0x7432e71efb20>
+created_on: 2025-04-01 07:21:28.177410+00:00
+video: 
+photo: images/image_n9WLfKl.jpg
+recording: 
+is_assigned: False
+password: 2207
+password_protected: False
+slug: 2d260166-951a-4d63-a04e-aaf36c5495cc
+imei: NPKVA5D19D
+is_name: Ashwin
+is_comments: Nothing
+created_at: 2025-04-17 12:40:21.675006+00:00
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/image_n9WLfKl.jpg
+_state: <django.db.models.base.ModelState object at 0x7432e70002b0>
+created_on: 2025-04-01 09:06:36.512403+00:00
+video: 
+photo: images/1000068087.jpg
+recording: 
+is_assigned: False
+password: 123456
+password_protected: False
+slug: 23538c71-8c19-471d-894e-98246120b46b
+imei: IFHDBFHDND
+is_name: John
+is_comments: My black 🖤
+created_at: 2025-04-17 16:49:44.245315+00:00
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/1000068087.jpg
+_state: <django.db.models.base.ModelState object at 0x7432e70008e0>
+created_on: 2025-04-01 11:28:28.731814+00:00
+video: 
+photo: images/record.png
+recording: 
+is_assigned: False
+password: 1234
+password_protected: False
+slug: 1a7b0707-23a4-4954-8355-499e7a3ca80b
+imei: FS9EW71MKJD
+is_name: tes
+is_comments: value
+created_at: 2025-04-17 16:50:43.104045+00:00
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/record.png
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+April 17, 2025 - 22:39:28
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+April 17, 2025 - 22:40:03
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+April 17, 2025 - 22:45:42
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+April 17, 2025 - 22:51:02
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+April 17, 2025 - 22:51:56
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+April 17, 2025 - 22:54:45
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+April 17, 2025 - 22:59:55
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Error: That port is already in use.
+Database connected successfully!
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Error: That port is already in use.
+Database connected successfully!
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Error: That port is already in use.
+Database connected successfully!
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Invalid line: CSRF_TRUSTED_ORIGINS = ['http://zaisha-test.vinsinfo.com/']
+Invalid line: AWS_S3_REGION_NAME = 'us-east-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.us-east-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Error: That port is already in use.
+Database connected successfully!
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 16, 2025 - 15:19:10
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+_state: <django.db.models.base.ModelState object at 0x798a10226f50>
+created_on: 2025-04-01 07:21:28.177410+00:00
+video: 
+photo: images/image_n9WLfKl.jpg
+recording: 
+is_assigned: False
+password: 2207
+password_protected: False
+slug: 2d260166-951a-4d63-a04e-aaf36c5495cc
+imei: NPKVA5D19D
+is_name: Ashwin
+is_comments: Nothing
+created_at: 2025-05-22 09:50:34.564341+00:00
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/image_n9WLfKl.jpg
+_state: <django.db.models.base.ModelState object at 0x798a10259de0>
+created_on: 2025-04-01 07:21:28.177410+00:00
+video: 
+photo: images/image_u8w3tzr.jpg
+recording: 
+is_assigned: False
+password: 2207
+password_protected: False
+slug: 2d260166-951a-4d63-a04e-aaf36c5495cc
+imei: NPKVA5D19D
+is_name: Ashu
+is_comments: Just for checking
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/image_u8w3tzr.jpg
+_state: <django.db.models.base.ModelState object at 0x798a0a059690>
+created_on: 2025-04-01 07:21:28.177410+00:00
+video: video/76960087130__E574BEC5-D343-45B8-AC4A-6C102DB95F55.MOV
+photo: 
+recording: 
+is_assigned: False
+password: 2207
+password_protected: False
+slug: 2d260166-951a-4d63-a04e-aaf36c5495cc
+imei: NPKVA5D19D
+is_name: Ashu
+is_comments: Checking
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/76960087130__E574BEC5-D343-45B8-AC4A-6C102DB95F55.MOV
+_state: <django.db.models.base.ModelState object at 0x798a08366a70>
+created_on: 2025-04-01 07:21:28.177410+00:00
+video: 
+photo: 
+recording: recordings/recording_AGILHLF.wav
+is_assigned: False
+password: 2207
+password_protected: False
+slug: 2d260166-951a-4d63-a04e-aaf36c5495cc
+imei: NPKVA5D19D
+is_name: Ashu
+is_comments: Checking
+Recording URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/recordings/recording_AGILHLF.wav
+_state: <django.db.models.base.ModelState object at 0x798a0819d930>
+created_on: 2025-04-01 07:21:28.177410+00:00
+video: 
+photo: images/image_O9Q2ZaO.jpg
+recording: 
+is_assigned: False
+password: 2207
+password_protected: False
+slug: 2d260166-951a-4d63-a04e-aaf36c5495cc
+imei: NPKVA5D19D
+is_name: Ashu
+is_comments: Checking
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/image_O9Q2ZaO.jpg
+_state: <django.db.models.base.ModelState object at 0x798a083660b0>
+created_on: 2025-04-01 07:21:28.177410+00:00
+video: video/76960642783__419869B6-4A54-431C-94EF-65F2EAF53280.MOV
+photo: 
+recording: 
+is_assigned: False
+password: 2207
+password_protected: False
+slug: 2d260166-951a-4d63-a04e-aaf36c5495cc
+imei: NPKVA5D19D
+is_name: Ashu
+is_comments: Just for fun
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/76960642783__419869B6-4A54-431C-94EF-65F2EAF53280.MOV
+_state: <django.db.models.base.ModelState object at 0x798a0833e080>
+created_on: 2025-05-22 12:43:40.858484+00:00
+video: video/1000082556.mp4
+photo: 
+recording: 
+is_assigned: False
+password: None
+password_protected: False
+slug: 628cb922-1a9e-41db-9024-c1b85e0e2845
+imei: HDHDJJDD
+is_name: John
+is_comments: Test video
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/1000082556.mp4
+_state: <django.db.models.base.ModelState object at 0x798a0833dfc0>
+created_on: 2025-05-22 12:54:21.414559+00:00
+video: video/1000038932.mp4
+photo: 
+recording: 
+is_assigned: False
+password: None
+password_protected: False
+slug: d63947a6-9e57-4daa-aaec-7e6131d39d07
+imei: 095JVKYHT3AF
+is_name: Test
+is_comments: Test
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/1000038932.mp4
+_state: <django.db.models.base.ModelState object at 0x798a0833e560>
+created_on: 2025-05-22 12:54:21.414559+00:00
+video: video/1000038932.mp4
+photo: 
+recording: 
+is_assigned: False
+password: 1234
+password_protected: False
+slug: d63947a6-9e57-4daa-aaec-7e6131d39d07
+imei: 095JVKYHT3AF
+is_name: Test
+is_comments: Test
+created_at: 2025-05-22 12:55:04.868000+00:00
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/1000038932.mp4
+_state: <django.db.models.base.ModelState object at 0x798a0833fa60>
+created_on: 2025-05-22 12:54:21.414559+00:00
+video: video/1000038932.mp4
+photo: 
+recording: 
+is_assigned: False
+password: 12345
+password_protected: False
+slug: d63947a6-9e57-4daa-aaec-7e6131d39d07
+imei: 095JVKYHT3AF
+is_name: Test
+is_comments: Test
+created_at: 2025-05-22 12:55:18.308597+00:00
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/1000038932.mp4
+_state: <django.db.models.base.ModelState object at 0x798a0833f6a0>
+created_on: 2025-05-22 12:43:40.858484+00:00
+video: video/1000082556.mp4
+photo: 
+recording: 
+is_assigned: False
+password: 12356
+password_protected: False
+slug: 628cb922-1a9e-41db-9024-c1b85e0e2845
+imei: HDHDJJDD
+is_name: John
+is_comments: Test video
+created_at: 2025-05-22 12:55:23.638576+00:00
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/1000082556.mp4
+_state: <django.db.models.base.ModelState object at 0x798a08367d60>
+created_on: 2025-05-22 12:43:40.858484+00:00
+video: video/1000082556.mp4
+photo: 
+recording: 
+is_assigned: False
+password: 5656
+password_protected: False
+slug: 628cb922-1a9e-41db-9024-c1b85e0e2845
+imei: HDHDJJDD
+is_name: John
+is_comments: Test video
+created_at: 2025-05-22 12:55:33.841685+00:00
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/1000082556.mp4
+_state: <django.db.models.base.ModelState object at 0x798a082e9f60>
+created_on: 2025-04-01 07:21:28.177410+00:00
+video: video/76968930994__E554BB2E-36FD-4E39-8E15-78D61E48083A.MOV
+photo: 
+recording: 
+is_assigned: False
+password: 2207
+password_protected: False
+slug: 2d260166-951a-4d63-a04e-aaf36c5495cc
+imei: NPKVA5D19D
+is_name: Test
+is_comments: Test
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/76968930994__E554BB2E-36FD-4E39-8E15-78D61E48083A.MOV
+_state: <django.db.models.base.ModelState object at 0x7989ebf8fcd0>
+created_on: 2025-04-01 07:21:28.177410+00:00
+video: video/RPReplay_Final1730715039.mp4
+photo: 
+recording: 
+is_assigned: False
+password: 2207
+password_protected: False
+slug: 2d260166-951a-4d63-a04e-aaf36c5495cc
+imei: NPKVA5D19D
+is_name: Test
+is_comments: Test
+Video URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/video/RPReplay_Final1730715039.mp4
+_state: <django.db.models.base.ModelState object at 0x798a08366380>
+created_on: 2025-05-27 14:10:41.909685+00:00
+video: 
+photo: images/1000083806.jpg
+recording: 
+is_assigned: False
+password: None
+password_protected: False
+slug: 6fa48c9d-697f-4b41-a15b-e6f9a21ed573
+imei: IFHDBFHDND1
+is_name: John
+is_comments: Testing
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/1000083806.jpg
+_state: <django.db.models.base.ModelState object at 0x798a0819e6e0>
+created_on: 2025-05-27 14:10:41.909685+00:00
+video: 
+photo: images/1000083806.jpg
+recording: 
+is_assigned: False
+password: 1234
+password_protected: False
+slug: 6fa48c9d-697f-4b41-a15b-e6f9a21ed573
+imei: IFHDBFHDND1
+is_name: John
+is_comments: Testing
+created_at: 2025-05-27 14:12:43.163656+00:00
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/1000083806.jpg
+_state: <django.db.models.base.ModelState object at 0x798a0a05a170>
+created_on: 2025-05-28 05:31:51.451792+00:00
+video: 
+photo: images/1000097508.jpg
+recording: 
+is_assigned: False
+password: None
+password_protected: False
+slug: 94ec4843-e71e-49ff-a156-6307a3203818
+imei: JDKDDNR839
+is_name: Test
+is_comments: Test
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/1000097508.jpg
+_state: <django.db.models.base.ModelState object at 0x7989ebff8190>
+created_on: 2025-05-28 05:31:51.451792+00:00
+video: 
+photo: images/1000097508.jpg
+recording: 
+is_assigned: False
+password: 1234
+password_protected: False
+slug: 94ec4843-e71e-49ff-a156-6307a3203818
+imei: JDKDDNR839
+is_name: Test
+is_comments: Test
+created_at: 2025-05-28 05:32:18.171108+00:00
+Photo URL: https://s3zaisha-test.s3.us-east-1.amazonaws.com/images/1000097508.jpg
+_state: <django.db.models.base.ModelState object at 0x798a10226ec0>
+created_on: 2025-05-28 05:47:49.759533+00:00
+video: 
+Database connected successfully!
+Invalid line: AWS_S3_REGION_NAME = 'ap-south-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3zaisha-develop.s3.ap-south-1.amazonaws.com/'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Invalid line: AWS_S3_REGION_NAME = 'ap-south-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3zaisha-develop.s3.ap-south-1.amazonaws.com/'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Error: That port is already in use.
+Database connected successfully!
+Invalid line: AWS_S3_REGION_NAME = 'ap-south-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3zaisha-develop.s3.ap-south-1.amazonaws.com/'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Invalid line: AWS_S3_REGION_NAME = 'ap-south-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3zaisha-develop.s3.ap-south-1.amazonaws.com/'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 29, 2025 - 20:11:44
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Invalid line: AWS_S3_REGION_NAME = 'ap-south-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3zaisha-develop.s3.ap-south-1.amazonaws.com/'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+Database connected successfully!
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 29, 2025 - 21:19:21
+Django version 5.1.6, using settings 'mysite.settings'
+Starting development server at http://0.0.0.0:8030/
+Quit the server with CONTROL-C.
+
+Invalid line: CSRF_TRUSTED_ORIGINS = [
+Invalid line:     "https://feelings.zaisha.co.in",
+Invalid line: ]
+Invalid line: AWS_S3_REGION_NAME = 'ap-south-1'
+Invalid line: AWS_S3_ENDPOINT_URL = 'https://s3.ap-south-1.amazonaws.com'
+Invalid line: AWS_QUERYSTRING_AUTH = False
+Invalid line: AWS_S3_ADDRESSING_STYLE = "virtual"
+Invalid line: DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+Invalid line: AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com
+Database connected successfully!

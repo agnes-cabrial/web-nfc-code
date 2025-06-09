@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Data</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+        }
+        .start-button {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 15px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 50px;
+        }
+        .start-button:hover {
+            background-color: #D2B48C;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo"></div>
+        <img src="../../../static/images/bg.png" width="150px;" height="auto;">
+        <div class="gift-image">
+            <div class="gift-bow"></div>
+        </div>
+        <button class="start-button" onclick="writeTextTag()">Write store URL</button>
+    </div>
+
+    <script>
+        async function writeTextTag() {
+            if (!('NDEFReader' in window)) {
+                alert('NFC not supported on this device');
+                return;
+            }
+
+            const randomID = generateRandomID();
+            const url = `https://feelings.zaisha.co.in/?imei=${randomID}`;
+
+            try {
+                const ndef = new NDEFReader();
+                await ndef.write({
+                    records: [{ recordType: 'url', data: url }]
+                });
+
+                console.log('NFC Tag Written Successfully:', url);
+                alert('URL was successfully stored in the NFC tag');
+            } catch (error) {
+                console.error('NFC Write Error:', error);
+                alert('Failed to write to NFC tag');
+            }
+        }
+
+        function generateRandomID() {
+            return Math.random().toString(36).substring(2, 17).toUpperCase();
+        }
+    </script>
+</body>
+</html>
